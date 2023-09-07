@@ -35,7 +35,7 @@ const Navbar = () => {
                 ))}
             </ul>
             {/* menu hamburger */}
-            <div onClick={() => setNav(!nav)} className='cursor-pointer pr-4 z-10 text-black'>
+            <div onClick={() => setNav(!nav)} className='cursor-pointer pr-4 z-10 text-black md:hidden'>
                 {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
             </div>
             {nav && (
