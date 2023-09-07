@@ -10,11 +10,11 @@ function Home() {
     const [cart, updateCart] = useState(savedCart ? JSON.parse(savedCart) : [])
 
     // variable pour l'affichage des catégories pour le filtre
-    const categories = windList.reduce(
-        (acc, elem) =>
-        acc.includes(elem.category) ? acc : acc.concat(elem.category),
-        []
-    )
+    // const categories = windList.reduce(
+    //     (acc, elem) =>
+    //     acc.includes(elem.category) ? acc : acc.concat(elem.category),
+    //     []
+    // )
 
     return (
         <div name="home" className="h-screen w-full bg-gradient-to-b from-darkblue to-lightblue">
