@@ -3,7 +3,7 @@ import { socialLinks } from '../datas/socialLinks'
 
 const SocialLinks = () => {
   return (
-    <div className='flex flex-col top-[15%] right-20 fixed'>
+    <div className='hidden lg:flex flex-col top-[15%] right-20 fixed'>
         <ul>
             {socialLinks.map(({id, href, child}) => ( 
                 <li 
