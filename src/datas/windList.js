@@ -11,41 +11,47 @@ export const windList = [
         category: "léger",
         id: "1b",
         price: 1530,
-        cover: brise
+        cover: brise,
+        amount: 0
     },
     {
         name: "frais",
         category: "léger",
         id: "1f",
         price: 2410,
-        cover: frais
+        cover: frais,
+        amount: 0
     },
     {
         name: "fort",
         category: "ça se corse",
         id: "2f",
         price: 4230,
-        cover: fort
+        cover: fort,
+        amount: 0
     },
     {
         name: "coups",
         category: "ça se corse",
         id: "2c",
         price: 7360,
-        cover: coups
+        cover: coups,
+        amount: 0
     },
     {
         name: "tempete",
         category: "ça craint",
         id: "3t",
         price: 9500,
-        cover: tempete
+        cover: tempete,
+        amount: 0
     },
     {
         name: "ouragan",
         category: "ça craint",
         id: "3o",
         price: 11235,
-        cover: ouragan
+        cover: ouragan,
+        amount: 0
     }
 ]
