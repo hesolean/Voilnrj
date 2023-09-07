@@ -38,3 +38,5 @@ function Cart ({cart, updateCart}) {
         </div>
     )
 }
+
+export default Cart
