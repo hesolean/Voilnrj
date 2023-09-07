@@ -8,7 +8,7 @@ function Cart ({cart, updateCart}) {
     useEffect(() => {
         document.title = `Voilnrj : ${total}€ d'achats`
     }, [total])
-    return isOpen ? [
+    return isOpen ? (
         <div>
             <button onClick={() => setIsOpen(false)}>
                 Fermer la voile
@@ -30,5 +30,11 @@ function Cart ({cart, updateCart}) {
                 <div>Votre voile est vide</div>
             )}
         </div>
-    ]
+    ) : (
+        <div>
+            <button onClick={() => setIsOpen(true)}>
+                Border la voile
+            </button>
+        </div>
+    )
 }
