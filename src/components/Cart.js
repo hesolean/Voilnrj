@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react"
+import { BiWind } from 'react-icons/bi'
+import { GiTornado } from 'react-icons/gi'
+import { WiDayCloudyWindy } from 'react-icons/wi'
 
 function Cart ({cart, updateCart}) {
     // constante pour ouvrir ou fermer le panier (la voile), fermé par défaut
@@ -18,8 +21,13 @@ function Cart ({cart, updateCart}) {
     return isOpen ? (
         // affiche le bouton fermer si le panier est ouvert et vice versa
         <div>
-            <button onClick={() => setIsOpen(false)}>
+            <button 
+                className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer"
+                onClick={() => setIsOpen(false)}>
                 Fermer la voile
+                <span className="group-hover:translate-x-1 duration-300">
+                    <WiDayCloudyWindy size={25} className="ml-1"/>
+                </span>
             </button>
             {cart.length > 0 ? (
                 <div>
@@ -35,7 +43,15 @@ function Cart ({cart, updateCart}) {
                     {/* affiche le total */}
                     <h3>Total : {total}€</h3>
                     {/* bouton pourvider le panier */}
-                    <button onClick={() => updateCart([])}>Vider la voile</button>
+                    <button 
+                        className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer"
+                        onClick={() => updateCart([])}
+                    >
+                        Vider la voile
+                    </button>
+                    <span className="group-hover:translate-x-1 duration-300">
+                        <GiTornado size={25} className="ml-1"/>
+                    </span>
                 </div>
             ) : (
                 <div>Votre voile est vide</div>
@@ -44,8 +60,9 @@ function Cart ({cart, updateCart}) {
     ) : (
         <div>
             {/* bouton pour ouvrir le panier */}
-            <button onClick={() => setIsOpen(true)}>
+            <button className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer" onClick={() => setIsOpen(true)}>
                 Border la voile
+                <span className="group-hover:translate-x-1 duration-300"><BiWind size={25} className="ml-1"/></span>
             </button>
         </div>
     )
