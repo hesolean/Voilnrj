@@ -1,3 +1,4 @@
+//affichage de chaque produit dans la liste de la home
 function WindItem({cover, name, price}) {
     return (
         <li className="bg-sky-500">
