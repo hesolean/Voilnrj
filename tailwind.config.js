@@ -12,6 +12,7 @@ module.exports = {
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
+      title: ['Rubik Iso']
     },
     extend: {},
   },

@@ -13,7 +13,7 @@ function Home() {
     )
     return (
         <div>
-            <h1 className='text-3xl text-center font-bold underline'>Bienvenue chez le fournisseur officiel de carburant pour voiliers</h1>
+            <h1 className='text-3xl text-center font-bold underline font-title'>Bienvenue chez le fournisseur officiel de carburant pour voiliers</h1>
             <div>
                 <Cart
                     cart={cart}
