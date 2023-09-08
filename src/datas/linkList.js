@@ -5,7 +5,7 @@ export const linkList = [
     },
     {
         id: 2,
-        title: 'cart'
+        title: 'voile'
     },
     {
         id: 3,
@@ -14,5 +14,9 @@ export const linkList = [
     {
         id: 4,
         title: 'contact'
+    },
+    {
+        id: 5,
+        title: 'footer'
     }
 ]
