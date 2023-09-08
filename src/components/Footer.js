@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Footer = () => {
 	const [message, setMessage] = useState('')
-    const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState('')
 
 	function handleSubmit(e) {
 		e.preventDefault()
@@ -21,6 +21,10 @@ const Footer = () => {
 		}
 	}
 
+	const handleSubmit = (e) => {
+		e.preventDefault()
+		alert(`Merci d'avoir partagé votre email :  ${message}. Je vous répondrait à l'adresse : ${inputValue}`)
+	}
   return (
     <div name='footer'>
         <footer className='text-black p-4 border-t-black border-2 flex justify-start flex-col items-center text-xl bg-lightblue'>
