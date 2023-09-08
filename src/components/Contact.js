@@ -12,6 +12,7 @@ const Contact = () => {
                     Contactez-moi pour plus de détails sur la compatibilité avec votre matériel !
                 </p>
             </div>
+            {/* formulaire de contact */}
             <div className='flex justify-center items-center'>
                 <form action="https://getform.io/f/8da7ecb0-1ded-4d85-8808-3c1d372b0536" method='POST' className='flex flex-col w-full md:w-1/2'>
                     <input 
@@ -32,6 +33,7 @@ const Contact = () => {
                         rows="10" className='p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none'
                     >
                     </textarea>
+                    {/* envoie le formulaire vers getform.io */}
                     <button 
                         className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
                     >
