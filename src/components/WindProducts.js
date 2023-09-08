@@ -31,6 +31,7 @@ const WindProducts = ({ cart, updateCart }) => {
 		} else {
 			updateCart([...cart, { name, price, amount: 1 }])
 		}
+        alert("Ajouté à la voile !")
 	}
 
   return (
