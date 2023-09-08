@@ -20,7 +20,7 @@ function Cart ({cart, updateCart}) {
 
     return isOpen ? (
         // affiche le bouton fermer si le panier est ouvert et vice versa
-        <div name="cart">
+        <div name="voile">
             <button 
                 className="group w-fit px-6 py-3 my-2 flex rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer"
                 onClick={() => setIsOpen(false)}>

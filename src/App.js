@@ -21,7 +21,7 @@ function App() {
     <>
       <Navbar/>
       <Home />
-      <div name="cart" className="h-screen w-full pt-[100px] bg-gradient-to-b from-lightblue to-darkblue">
+      <div name="voile" className="h-screen w-full pt-[100px] bg-gradient-to-b from-lightblue to-darkblue">
         <div className='maw-w-screen-lgms-auto justify-center h-full px-4'>
           {/* gestion du panier */}
           <Cart
