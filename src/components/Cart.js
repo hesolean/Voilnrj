@@ -7,7 +7,7 @@ function Cart ({cart, updateCart}) {
     // constante pour ouvrir ou fermer le panier (la voile), fermé par défaut
     const [isOpen, setIsOpen] = useState(false)
 
-    // calcul du totla du panier
+    // calcul du total du panier
     const total = cart.reduce(
         (acc, windType) => acc + windType.amount * windType.price,
         0
@@ -42,7 +42,7 @@ function Cart ({cart, updateCart}) {
                     </ul>
                     {/* affiche le total */}
                     <h3>Total : {total}€</h3>
-                    {/* bouton pourvider le panier */}
+                    {/* bouton pour vider le panier */}
                     <button 
                         className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer"
                         onClick={() => updateCart([])}

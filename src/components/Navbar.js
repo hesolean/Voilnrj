@@ -19,6 +19,7 @@ const Navbar = () => {
                         key={id} // la clé est obligatoire dans les listes
                         className='px-4 cursor-pointer capitalize font-medium text-black hover:scale-105 duration-200'
                     >
+                        {/* utilise le smooth de react pour faire glisser la page vers la section du menu */}
                         <Link to={title} smooth duration={500}>
                             {title}
                         </Link>
@@ -31,15 +32,19 @@ const Navbar = () => {
                 {/* affichage du hamburger ou de la croix en fonction de l'affichage */}
                 {nav ? <FaTimes size={30} /> : <FaBars size={30} />}
             </div>
+
             {/* affichage du menu sur les grands écrans */}
             {nav && (
                 <ul className='flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-lightblue to-darkblue'>
                     {linkList.map(({title, id}) => (
-                            <li 
-                                key={id}
-                                className='px-4 cursor-pointer capitalize py-6 text-4xl'>
-                                    {title}
-                            </li>))}
+                        <li 
+                            key={id}
+                            className='px-4 cursor-pointer capitalize py-6 text-4xl'
+                        >
+                            <Link onClick={() => setNav(!nav)} to={title} smooth duration={500}>
+                                {title}
+                            </Link>
+                        </li>))}
             </ul>
             )}
             
