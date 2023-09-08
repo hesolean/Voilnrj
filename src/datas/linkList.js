@@ -14,5 +14,9 @@ export const linkList = [
     {
         id: 4,
         title: 'contact'
+    },
+    {
+        id: 5,
+        title: 'footer'
     }
 ]
