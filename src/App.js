@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Cart from './components/Cart'
@@ -11,7 +11,10 @@ function App() {
   // stockage local des données du panier
   const savedCart = localStorage.getItem('cart')
   const [cart, updateCart] = useState(savedCart ? JSON.parse(savedCart) : [])
-  
+  // permet de conserver le panier même après un F5 sur la page
+  useEffect(() => {
+		localStorage.setItem('cart', JSON.stringify(cart))
+	}, [cart])
 
   return (
     <>
