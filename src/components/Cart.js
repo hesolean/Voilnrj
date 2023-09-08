@@ -13,6 +13,10 @@ function Cart ({cart, updateCart}) {
         0
     )
 
+    function removeFromCart(name) {
+        const newCart = cart.filter((wind) => wind.name !== name)
+        updateCart([...newCart])
+    }
     //met à jour le nom de la page en fonction de la valeur du panier
     useEffect(() => {
         document.title = `Voilnrj : ${total}€ d'achats`
@@ -41,6 +45,12 @@ function Cart ({cart, updateCart}) {
                         {cart.map(({name, price, amount}, index) => (
                             <div key={`${name}-${index}`}>
                                 {name} {price}€ * {amount} = {price * amount}€
+                                <button
+                                    className="text-lg w-fit px-6 py-3 my-2 flex rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer"
+                                    onClick={() => removeFromCart(name)}
+                                >
+                                    Supprimer le vent
+                                </button>
                             </div>
                         ))}
                     </ul>
