@@ -1,14 +1,8 @@
-import React, { useState } from 'react'
-import { windList } from '../datas/windList'
-import WindItem from './WindItem'
-import Cart from './Cart'
+import React from 'react'
 import logo from '../assets/logo.jpeg'
 
 function Home() {
-    // stockage local des données du panier
-    const savedCart = localStorage.getItem('cart')
-    const [cart, updateCart] = useState(savedCart ? JSON.parse(savedCart) : [])
-
+    
     // variable pour l'affichage des catégories pour le filtre
     // const categories = windList.reduce(
     //     (acc, elem) =>
@@ -24,27 +18,6 @@ function Home() {
                 </h1>
                 <img className="rounded-2xl w-32 my-auto md:w-64 mx-5" src={logo} alt='logo voilnrj'/>
             </div>
-                <div>
-                    {/* gestion du panier */}
-                    <Cart
-                        cart={cart}
-                        updateCart={updateCart}
-                    />
-                    {/* affichage des produits */}
-                    <ul className='flex flex-row'>
-                        {windList.map(
-                            ({id, name, price, cover}) =>
-                            <div key={id}>
-                                <WindItem
-                                    cover={cover}
-                                    name={name}
-                                    price={price}
-                                />
-                            </div>
-                        )}
-                    </ul>
-                </div>
-            
         </div>
     )
 }
