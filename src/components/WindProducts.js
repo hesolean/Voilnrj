@@ -4,7 +4,7 @@ import WindItem from './WindItem'
 
 const WindProducts = () => {
   return (
-    <div name="windProducts" className='h-screen w-full pt-[100px] bg-gradient-to-b from-darkblue to-lightblue'>
+    <div name="windProducts" className='w-full flex flex-wrap pt-[100px] bg-gradient-to-b from-darkblue to-lightblue md:h-screen' >
         <ul className='flex flex-wrap m-30'>
             {windList.map(
                 ({id, name, price, cover}) =>
