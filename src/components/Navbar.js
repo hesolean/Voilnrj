@@ -35,11 +35,14 @@ const Navbar = () => {
             {nav && (
                 <ul className='flex flex-col justify-center items-center absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-lightblue to-darkblue'>
                     {linkList.map(({title, id}) => (
-                            <li 
-                                key={id}
-                                className='px-4 cursor-pointer capitalize py-6 text-4xl'>
-                                    {title}
-                            </li>))}
+                        <li 
+                            key={id}
+                            className='px-4 cursor-pointer capitalize py-6 text-4xl'
+                        >
+                            <Link onClick={() => setNav(!nav)} to={title} smooth duration={500}>
+                                {title}
+                            </Link>
+                        </li>))}
             </ul>
             )}
             
