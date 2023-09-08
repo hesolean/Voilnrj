@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 import { linkList } from '../datas/linkList'
+import { Link } from 'react-scroll'
 
 const Navbar = () => {
     // affichage de la navbar pour le coté responsive
@@ -16,8 +17,11 @@ const Navbar = () => {
                 {linkList.map(({title, id}) => (
                     <li 
                         key={id} // la clé est obligatoire dans les listes
-                        className='px-4 cursor-pointer capitalize font-medium text-black hover:scale-105 duration-200'>
+                        className='px-4 cursor-pointer capitalize font-medium text-black hover:scale-105 duration-200'
+                    >
+                        <Link to={title} smooth duration={500}>
                             {title}
+                        </Link>
                     </li>
 
                 ))}

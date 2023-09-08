@@ -5,11 +5,13 @@ export const linkList = [
     },
     {
         id: 2,
-        title: 'description'
-    },{
+        title: 'cart'
+    },
+    {
         id: 3,
-        title: 'details'
-    },{
+        title: 'windProducts'
+    },
+    {
         id: 4,
         title: 'contact'
     }
