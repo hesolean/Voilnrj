@@ -27,7 +27,10 @@ function App() {
         </div>
       </div>
       {/* affichage des produits */}
-      <WindProducts/>
+      <WindProducts
+        cart={cart} 
+        updateCart={updateCart}
+      />
       <Contact />
       
       <SocialLinks/>

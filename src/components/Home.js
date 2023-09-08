@@ -3,13 +3,6 @@ import logo from '../assets/logo.jpeg'
 
 function Home() {
     
-    // variable pour l'affichage des catégories pour le filtre
-    // const categories = windList.reduce(
-    //     (acc, elem) =>
-    //     acc.includes(elem.category) ? acc : acc.concat(elem.category),
-    //     []
-    // )
-
     return (
         <div name="home" className="h-screen w-full bg-gradient-to-b from-darkblue to-lightblue">
             <div className='maw-w-screen-lgms-auto flex flex-col items-center justify-center h-full px-4 md:flex-row'>
