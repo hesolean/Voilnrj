@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Categories = ({ setActiveCategory, categories, activeCategory }) => {
-    
+
   return (
     <div>
         <label
