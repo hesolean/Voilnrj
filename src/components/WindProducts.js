@@ -37,7 +37,7 @@ const WindProducts = ({ cart, updateCart }) => {
   return (
     <div 
         name="windProducts" 
-        className='w-full flex flex-wrap pt-[100px] bg-gradient-to-b from-darkblue to-lightblue md:h-screen' 
+        className='w-full flex flex-wrap pt-[100px] bg-gradient-to-b from-darkblue to-lightblue' 
     >
         <Categories
             categories={categories}
