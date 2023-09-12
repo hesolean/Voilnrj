@@ -41,7 +41,7 @@ const Connexion = () => {
     // ... et les critères de validation des champs
     //validate,
     // on remplace validate par validationSchema
-    validationSchema
+    validationSchema,
   });
 
   return (
@@ -71,10 +71,12 @@ const Connexion = () => {
               name="identifiant"
               placeholder="Entrez votre email"
               className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
-              onChange={formik.handleChange}
-              //ajout de onBlur pour n'afficher les erreurs que quand un champ est visité
-              onBlur={formik.handleBlur}
-              value={formik.values.identifiant}
+              //   onChange={formik.handleChange}
+              //   //ajout de onBlur pour n'afficher les erreurs que quand un champ est visité
+              //   onBlur={formik.handleBlur}
+              //   value={formik.values.identifiant}
+              // refactor des 3 lignes précédentes
+              {...formik.getFieldProps("identifiant")}
             />
             {/* on affiche sur le DOM l'erreur que si elle existe ET champs visité*/}
             {formik.touched.identifiant && formik.errors.identifiant ? (
@@ -90,9 +92,11 @@ const Connexion = () => {
               name="password"
               placeholder="Entrez votre mot de passe"
               className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
+              //   onChange={formik.handleChange}
+              //   onBlur={formik.handleBlur}
+              //   value={formik.values.password}
+              // refactor des 3 lignes précédentes
+              {...formik.getFieldProps("password")}
             />
             {formik.touched.password && formik.errors.password ? (
               <div className="ml-3">{formik.errors.password}</div>
