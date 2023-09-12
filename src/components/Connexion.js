@@ -1,5 +1,6 @@
 import React from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 // 3 constantes qui vont paramétrer la constante formik pour alléger le code du composant
 const initialValues = {
@@ -7,22 +8,28 @@ const initialValues = {
   password: "",
 };
 const onSubmit = (values) => {};
-const validate = (values) => {
-  let errors = {};
-  //si la valeur dans un champs n'existe pas, on renvoie une erreur
-  if (!values.identifiant) {
-    //on spécifie le format de l'email puisque c'est le format de l'identifiant
-    errors.identifiant = "Identifiant requis";
-  } else if (
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.identifiant)
-  ) {
-    errors.identifiant = "Format invalide";
-  }
-  if (!values.password) {
-    errors.password = "Password requis";
-  }
-  return errors;
-};
+// const validate = (values) => {
+//   let errors = {};
+//   //si la valeur dans un champs n'existe pas, on renvoie une erreur
+//   if (!values.identifiant) {
+//     //on spécifie le format de l'email puisque c'est le format de l'identifiant
+//     errors.identifiant = "Identifiant requis";
+//   } else if (
+//     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.identifiant)
+//   ) {
+//     errors.identifiant = "Format invalide";
+//   }
+//   if (!values.password) {
+//     errors.password = "Password requis";
+//   }
+//   return errors;
+// };
+
+//version simplifiée de validate grâce à Yup
+const validationSchema = Yup.object({
+  identifiant: Yup.string().email("Format invalide").required("Requis"),
+  password: Yup.string().required("Requis"),
+});
 
 // début du composant
 const Connexion = () => {
@@ -32,7 +39,9 @@ const Connexion = () => {
     // ... l'objet final du formulaire lors du click sur le bouton submit...
     onSubmit,
     // ... et les critères de validation des champs
-    validate,
+    //validate,
+    // on remplace validate par validationSchema
+    validationSchema
   });
 
   return (
