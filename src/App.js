@@ -3,9 +3,11 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Cart from './components/Cart'
 import WindProducts from './components/WindProducts';
+import NewWind from './components/NewWind';
 import SocialLinks from './components/SocialLinks';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Connexion from './components/Connexion';
 
 function App() {
   
@@ -36,6 +38,9 @@ function App() {
         updateCart={updateCart}
       />
       <Contact />
+      <Connexion />
+      <NewWind />
+
       <Footer/>
       
       <SocialLinks/>
