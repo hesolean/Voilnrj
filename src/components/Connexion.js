@@ -1,6 +1,15 @@
 import React from 'react'
+import { useFormik } from 'formik'
 
 const Connexion = () => {
+
+    const formik = useFormik({
+        initialValues: {
+            identifiant: '',
+            password: ''
+        }
+    })
+
   return (
     <div name="connexion" className='w-full bg-gradient-to-b from-darkblue to-lightblue text-dark md:h-screen'>
         <div className='flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full'>
@@ -23,6 +32,8 @@ const Connexion = () => {
                         name='identifiant' 
                         placeholder='Entrez votre email' 
                         className='p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none'
+                        onChange={formik.handleChange}
+                        value={formik.values.identifiant}
                     />
                     <label 
                         htmlFor='password' 
@@ -34,6 +45,8 @@ const Connexion = () => {
                         name='password' 
                         placeholder='Entrez votre mot de passe' 
                         className='p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none'
+                        onChange={formik.handleChange}
+                        value={formik.values.password}
                     />
                     <button
                         className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
