@@ -64,6 +64,9 @@ const Connexion = () => {
                         onChange={formik.handleChange}
                         value={formik.values.identifiant}
                     />
+                    {/* on affiche sur le DOM l'eereur que si elle existe */}
+                    {formik.errors.identifiant ? <div>{formik.errors.identifiant}</div> : null}
+
                     <label 
                         htmlFor='password' 
                         className='text-3xl mb-3 mt-8'
@@ -77,6 +80,8 @@ const Connexion = () => {
                         onChange={formik.handleChange}
                         value={formik.values.password}
                     />
+                    {formik.errors.password ? <div>{formik.errors.password}</div> : null}
+
                     {/* le bouton doit être du type submit pour éviter les warnings */}
                     <button
                         type='submit'
