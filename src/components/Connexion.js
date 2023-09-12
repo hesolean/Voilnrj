@@ -1,18 +1,37 @@
 import React from 'react'
 import { useFormik } from 'formik'
 
+// 3 constantes qui vont paramétrer la constante formik pour alléger le code du composant
+const initialValues = {
+    identifiant: '',
+    password: ''
+}
+const onSubmit =  values => {}
+const validate = values => {
+    let errors = {}
+    //si la valeur dans un champs n'existe pas, on renvoie une erreur
+    if(!values.identifiant) {
+        //on spécifie le format de l'email puisque c'est le format de l'identifiant
+        errors.identifiant = 'Identifiant requis'
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.identifiant)) {
+        errors.identifiant = 'Format invalide'
+    }
+    if(!values.password) {
+        errors.password = 'Password requis'
+    }
+    return errors
+}
+
+// début du composant
 const Connexion = () => {
 
     //constante qui regroupe les valeurs de l'objet qui compose le formulaire ...
     const formik = useFormik({
-        initialValues: {
-            identifiant: '',
-            password: ''
-        },
-        // ... et l'objet final du formulaire lors du click sur le bouton submit
-        onSubmit: values => {
-
-        }
+        initialValues,
+        // ... l'objet final du formulaire lors du click sur le bouton submit...
+        onSubmit,
+        // ... et les critères de validation des champs
+        validate
     })
 
   return (
