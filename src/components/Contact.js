@@ -1,5 +1,7 @@
 import React from 'react'
 
+// utilise le site getform.io
+
 const Contact = () => {
   return (
     <div name="contact" className='w-full bg-gradient-to-b from-lightblue to-darkblue text-dark md:h-screen'>
