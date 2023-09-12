@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import Home from './components/Home';
-import Navbar from './components/Navbar';
+import Navbar from './components/layout/Navbar';
 import Cart from './components/Cart'
 import WindProducts from './components/WindProducts';
 import NewWind from './components/NewWind';
 import SocialLinks from './components/SocialLinks';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Footer from './components/layout/Footer';
 import Connexion from './components/Connexion';
 
 function App() {
