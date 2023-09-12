@@ -3,6 +3,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Cart from './components/Cart'
 import WindProducts from './components/WindProducts';
+import NewWind from './components/NewWind';
 import SocialLinks from './components/SocialLinks';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -38,6 +39,8 @@ function App() {
       />
       <Contact />
       <Connexion />
+      <NewWind />
+
       <Footer/>
       
       <SocialLinks/>
