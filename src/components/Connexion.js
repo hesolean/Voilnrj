@@ -3,10 +3,15 @@ import { useFormik } from 'formik'
 
 const Connexion = () => {
 
+    //constante qui regroupe les valeurs de l'objet qui compose le formulaire ...
     const formik = useFormik({
         initialValues: {
             identifiant: '',
             password: ''
+        },
+        // ... et l'objet final du formulaire lors du click sur le bouton submit
+        onSubmit: values => {
+
         }
     })
 
@@ -19,13 +24,18 @@ const Connexion = () => {
                 </p>
             </div>
             <div className='flex justify-center items-center mt-10'>
-                <form className='flex flex-col w-full md:w-1/2'>
+                {/* formulaire qui embarque la méthode handleSubmit de formik */}
+                <form 
+                    onSubmit={formik.handleSubmit}
+                    className='flex flex-col w-full md:w-1/2'
+                >
                     <label 
                         htmlFor='identifiant' 
                         className='text-3xl mb-3'
                     >
                         Identifiant
                     </label>
+                    {/* input embarque la méthode handleChange de formik */}
                     <input 
                         type='email' 
                         id='identifiant' 
@@ -48,7 +58,9 @@ const Connexion = () => {
                         onChange={formik.handleChange}
                         value={formik.values.password}
                     />
+                    {/* le bouton doit être du type submit pour éviter les warnings */}
                     <button
+                        type='submit'
                         className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
                     >
                         Connexion
