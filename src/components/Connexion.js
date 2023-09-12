@@ -67,8 +67,8 @@ const Connexion = () => {
               onBlur={formik.handleBlur}
               value={formik.values.identifiant}
             />
-            {/* on affiche sur le DOM l'eereur que si elle existe */}
-            {formik.errors.identifiant ? (
+            {/* on affiche sur le DOM l'erreur que si elle existe ET champs visité*/}
+            {formik.touched.identifiant && formik.errors.identifiant ? (
               <div className="ml-3">{formik.errors.identifiant}</div>
             ) : null}
 
@@ -85,7 +85,7 @@ const Connexion = () => {
               onBlur={formik.handleBlur}
               value={formik.values.password}
             />
-            {formik.errors.password ? (
+            {formik.touched.password && formik.errors.password ? (
               <div className="ml-3">{formik.errors.password}</div>
             ) : null}
 
