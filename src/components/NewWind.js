@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import TextError from "./TextError";
 
 const initialValues = {
   name: "",
@@ -51,7 +52,7 @@ const NewWind = () => {
                   placeholder="Entrez le nom du produit"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
-                <ErrorMessage name="name" />
+                <ErrorMessage name="name" component={TextError} />
               </div>
 
               <div className="m-2 p-2">
@@ -65,7 +66,7 @@ const NewWind = () => {
                   placeholder="Entrez la catégorie"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
-                <ErrorMessage name="category" />
+                <ErrorMessage name="category" component={TextError} />
               </div>
 
               <div className="m-2 p-2">
@@ -79,7 +80,7 @@ const NewWind = () => {
                   placeholder="Entrez le prix"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
-                <ErrorMessage name="price" />
+                <ErrorMessage name="price" component={TextError} />
               </div>
 
               <div className="m-2 p-2">
@@ -93,7 +94,7 @@ const NewWind = () => {
                   placeholder="Choisissez l'image"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
-                <ErrorMessage name="cover" />
+                <ErrorMessage name="cover" component={TextError} />
               </div>
 
               <button
