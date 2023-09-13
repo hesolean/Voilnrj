@@ -40,8 +40,7 @@ const NewWind = () => {
           onSubmit={onSubmit}
         >
           <div className="flex justify-center items-center mt-10">
-            <Form className="flex flex-wrap w-full md:w-1/2">
-              <div className="m-2 p-2">
+            <Form className="flex flex-col w-full md:w-1/2">
                 <label htmlFor="identifiant" className="text-3xl m-3">
                   Nom
                 </label>
@@ -53,9 +52,7 @@ const NewWind = () => {
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
                 <ErrorMessage name="name" component={TextError} />
-              </div>
 
-              <div className="m-2 p-2">
                 <label htmlFor="category" className="text-3xl mb-3 mt-8 mr-3">
                   Catégorie
                 </label>
@@ -67,9 +64,7 @@ const NewWind = () => {
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
                 <ErrorMessage name="category" component={TextError} />
-              </div>
 
-              <div className="m-2 p-2">
                 <label htmlFor="price" className="text-3xl mb-3 mt-8 mr-3">
                   Prix
                 </label>
@@ -81,9 +76,7 @@ const NewWind = () => {
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
                 <ErrorMessage name="price" component={TextError} />
-              </div>
 
-              <div className="m-2 p-2">
                 <label htmlFor="cover" className="text-3xl mb-3 mt-8 mr-3">
                   Image
                 </label>
@@ -95,7 +88,6 @@ const NewWind = () => {
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
                 <ErrorMessage name="cover" component={TextError} />
-              </div>
 
               <button
                 type="submit"
