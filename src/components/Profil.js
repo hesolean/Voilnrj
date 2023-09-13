@@ -10,9 +10,9 @@ const initialValues = {
     number: 0,
     street: "",
     zipCode: 0,
-    town: ""
+    town: "",
   },
-  phoneNumbers: ['']
+  phoneNumbers: [""],
 };
 const onSubmit = (values) => {};
 const validationSchema = Yup.object({
@@ -24,7 +24,7 @@ const validationSchema = Yup.object({
     zipCode: Yup.number().notRequired(),
     town: Yup.string().required("Requis"),
   },
-  phoneNumbers: Yup.array().of(Yup.string().matches(/^\d{10}$/,))
+  phoneNumbers: Yup.array().of(Yup.string().matches(/^\d{10}$/)),
 });
 
 function Profil() {
@@ -114,7 +114,7 @@ function Profil() {
                   name="phoneNumbers"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 >
-                  {fieldArrayProps => {
+                  {(fieldArrayProps) => {
                     //on extrait les information que l'on veut des méthodes
                     const { push, remove, form } = fieldArrayProps;
                     const { values } = form;
@@ -122,15 +122,28 @@ function Profil() {
                     return (
                       <div>
                         {phoneNumbers.map((phoneNumber, index) => (
-                          <div key={index}>
-                            <Field name={`phoneNumbers[${index}]`} />
-                            {/* on empêche de clicker sur - s'il n'y a plus qu'un champ */}
-                            {index > 0 && (<button type="button" onClick={() => remove(index)}>
-                              -
-                            </button>)}
-                            <button type="button" onClick={() => push('')}>
-                              +
+                          <div key={index} className="flex flex-row m-1">
+                            <Field
+                              className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
+                              name={`phoneNumbers[${index}]`}
+                            />
+                            <button
+                              className="px-3 py-1 ml-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
+                              type="button"
+                              onClick={() => push("")}
+                            >
+                              {""}+{""}
                             </button>
+                            {/* on empêche de clicker sur - s'il n'y a plus qu'un champ */}
+                            {index > 0 && (
+                              <button
+                                type="button"
+                                className="px-3 py-1 ml-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
+                                onClick={() => remove(index)}
+                              >
+                                {""}-{""}
+                              </button>
+                            )}
                           </div>
                         ))}
                       </div>
