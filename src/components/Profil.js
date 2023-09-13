@@ -1,5 +1,5 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from "yup";
 import TextError from "./TextError";
 
@@ -10,8 +10,9 @@ const initialValues = {
     number: 0,
     street: "",
     zipCode: 0,
-    town: "",
+    town: ""
   },
+//   phoneNumbers: ['']
 };
 const onSubmit = (values) => {};
 const validationSchema = Yup.object({
@@ -23,6 +24,7 @@ const validationSchema = Yup.object({
     zipCode: Yup.number().notRequired(),
     town: Yup.string().required("Requis"),
   },
+//   phoneNumbers: Yup.array().of(Yup.string().matches(/^\d{10}$/,))
 });
 
 function Profil() {
@@ -32,7 +34,7 @@ function Profil() {
       className="w-full bg-gradient-to-b from-lightblue to-darkblue text-dark md:h-screen"
     >
       <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
-        <div className="pb-8">
+        <div className="pb-2">
           <p className="text-4xl front-bold inline border-b-4 border-black">
             Profil
           </p>
@@ -42,9 +44,9 @@ function Profil() {
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
-          <div className="flex justify-center items-center mt-10">
+          <div className="flex justify-center items-center">
             <Form className="flex flex-col w-full md:w-1/2">
-              <label htmlFor="identifiant" className="text-3xl m-3">
+              <label htmlFor="identifiant" className="text-2xl">
                 Nom
               </label>
               <Field
@@ -56,7 +58,7 @@ function Profil() {
               />
               <ErrorMessage name="name" component={TextError} />
 
-              <label htmlFor="foreName" className="text-3xl mb-3 mt-8 mr-3">
+              <label htmlFor="foreName" className="text-2xl mb-3 mt-2 mr-3">
                 Prénom
               </label>
               <Field
@@ -68,17 +70,15 @@ function Profil() {
               />
               <ErrorMessage name="foreName" component={TextError} />
 
-              <label htmlFor="adress" className="text-3xl mb-3 mt-8 mr-3">
+              <label htmlFor="adress" className="text-2xl mb-3 mt-2 mr-3">
                 Adresse
               </label>
               <Field
                 type="number"
                 id="number"
                 name="adress.number"
-                placeholder="Entrez le numéro"
                 className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
               />
-              <ErrorMessage name="number" component={TextError} />
               <Field
                 type="text"
                 id="street"
@@ -91,7 +91,6 @@ function Profil() {
                 type="number"
                 id="zipCode"
                 name="adress.zipCode"
-                placeholder="Entrez le code postal"
                 className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
               />
               <ErrorMessage name="number" component={TextError} />
@@ -104,6 +103,36 @@ function Profil() {
               />
               <ErrorMessage name="town" component={TextError} />
 
+              {/* <div>
+                <label htmlFor="phone" className="text-2xl mb-3 mt-2 mr-3">
+                  Téléphone
+                </label>
+                <FieldArray
+                  name="phoneNumbers"
+                  className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
+                >
+                  {fieldArrayProps => {
+                    const { push, remove, form } = fieldArrayProps;
+                    const { values } = form;
+                    const { phoneNumbers } = values;
+                    return (
+                      <div>
+                        {phoneNumbers.map((phoneNumber, index) => (
+                          <div key={index}>
+                            <Field name={`phoneNumbers[${index}]`} />
+                            {index > 0 && (<button type="button" onClick={() => remove(index)}>
+                              -
+                            </button>)}
+                            <button type="button" onClick={() => push('')}>
+                              +
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  }}
+                </FieldArray>
+              </div> */}
               <button
                 type="submit"
                 className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
