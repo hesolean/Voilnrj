@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from "yup";
 import TextError from "./TextError";
@@ -14,6 +14,18 @@ const initialValues = {
   },
   phoneNumbers: [""],
 };
+
+const savedValues = {
+    name: "Jackson",
+    foreName: "Mickael",
+    adress: {
+      number: "222",
+      street: "backer Street",
+      zipCode: "22222",
+      town: "Tombouctou",
+    },
+    phoneNumbers: ["0123456789"],
+  };
 const onSubmit = async (values, onSubmitProps) => {
     console.log('first')
     try {
@@ -38,6 +50,7 @@ const validationSchema = Yup.object({
   
 
 function Profil() {
+    const [formValues, setFormValues] = useState(null)
   return (
     <div
       name="profil"
@@ -50,9 +63,12 @@ function Profil() {
           </p>
         </div>
         <Formik
-          initialValues={initialValues}
+        //il test formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas
+          initialValues={formValues || initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
+          //on autorise à utiliser les savedValues
+          enableReinitialize
           //on empêche la vérification de yup au changement et au blur
           validateOnChange={false}
           validateOnBlur={false}
@@ -165,6 +181,13 @@ function Profil() {
                       }}
                     </FieldArray>
                   </div>
+                  <button
+                    type="button"
+                    onClick={() => setFormValues(savedValues)}
+                    className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
+                  >
+                    Recharger le formulaire
+                  </button>
                   <button
                     type="submit"
                     disabled={!(formik.isValid) || formik.isSubmitting}
