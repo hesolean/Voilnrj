@@ -32,6 +32,7 @@ const onSubmit = async (values, onSubmitProps) => {
       console.log('Form data : ', values);
       console.log('submit props : ', onSubmitProps);
     onSubmitProps.setSubmitting(false)
+    onSubmitProps.resetForm()
 }catch (error) {
     console.error('Erreur lors de la soumission : ', error);
   }
@@ -187,6 +188,12 @@ function Profil() {
                     className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
                   >
                     Recharger le formulaire
+                  </button>
+                  <button
+                    type="reset"
+                    className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
+                  >
+                    Réinitialiser
                   </button>
                   <button
                     type="submit"
