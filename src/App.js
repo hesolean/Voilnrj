@@ -8,6 +8,7 @@ import SocialLinks from './components/SocialLinks';
 import Contact from './components/Contact';
 import Footer from './components/layout/Footer';
 import Connexion from './components/Connexion';
+import Profil from './components/Profil';
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
       />
       <Contact />
       <Connexion />
+      <Profil />
       <NewWind />
 
       <Footer/>

@@ -4,6 +4,15 @@ export const linkList = [
         title: 'home'
     },
     {
+        id: 61,
+        title: 'connexion'
+    },
+    
+    {
+        id: 62,
+        title: 'profil'
+    },
+    {
         id: 2,
         title: 'voile'
     },
@@ -15,16 +24,14 @@ export const linkList = [
         id: 4,
         title: 'contact'
     },
-    {
-        id: 5,
-        title: 'footer'
-    },
-    {
-        id: 6,
-        title: 'connexion'
-    },
+    
+    
     {
         id: 7,
         title: 'newWind'
+    },
+    {
+        id: 5,
+        title: 'footer'
     }
 ]
