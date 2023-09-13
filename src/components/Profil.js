@@ -12,7 +12,7 @@ const initialValues = {
     zipCode: 0,
     town: ""
   },
-//   phoneNumbers: ['']
+  phoneNumbers: ['']
 };
 const onSubmit = (values) => {};
 const validationSchema = Yup.object({
@@ -24,7 +24,7 @@ const validationSchema = Yup.object({
     zipCode: Yup.number().notRequired(),
     town: Yup.string().required("Requis"),
   },
-//   phoneNumbers: Yup.array().of(Yup.string().matches(/^\d{10}$/,))
+  phoneNumbers: Yup.array().of(Yup.string().matches(/^\d{10}$/,))
 });
 
 function Profil() {
@@ -43,6 +43,9 @@ function Profil() {
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
+          //on empêche la vérification de yup au changement et au blur
+          validateOnChange={false}
+          validateOnBlur={false}
         >
           <div className="flex justify-center items-center">
             <Form className="flex flex-col w-full md:w-1/2">
@@ -103,7 +106,7 @@ function Profil() {
               />
               <ErrorMessage name="town" component={TextError} />
 
-              {/* <div>
+              <div>
                 <label htmlFor="phone" className="text-2xl mb-3 mt-2 mr-3">
                   Téléphone
                 </label>
@@ -112,6 +115,7 @@ function Profil() {
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 >
                   {fieldArrayProps => {
+                    //on extrait les information que l'on veut des méthodes
                     const { push, remove, form } = fieldArrayProps;
                     const { values } = form;
                     const { phoneNumbers } = values;
@@ -120,6 +124,7 @@ function Profil() {
                         {phoneNumbers.map((phoneNumber, index) => (
                           <div key={index}>
                             <Field name={`phoneNumbers[${index}]`} />
+                            {/* on empêche de clicker sur - s'il n'y a plus qu'un champ */}
                             {index > 0 && (<button type="button" onClick={() => remove(index)}>
                               -
                             </button>)}
@@ -132,7 +137,7 @@ function Profil() {
                     );
                   }}
                 </FieldArray>
-              </div> */}
+              </div>
               <button
                 type="submit"
                 className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
