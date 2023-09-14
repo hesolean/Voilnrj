@@ -7,7 +7,8 @@ import NewWind from './components/wind/NewWind';
 import SocialLinks from './components/SocialLinks';
 import Contact from './components/Contact';
 import Footer from './components/layout/Footer';
-import Connexion from './components/Connexion';
+// import Connexion from './components/Connexion';
+import Login from './components/Login.js'
 import Profil from './components/Profil';
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
         updateCart={updateCart}
       />
       <Contact />
-      <Connexion />
+      <Login />
       <Profil />
       <NewWind />
 

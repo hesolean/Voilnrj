@@ -5,7 +5,7 @@ export const linkList = [
     },
     {
         id: 61,
-        title: 'connexion'
+        title: 'login'
     },
     
     {
