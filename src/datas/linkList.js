@@ -28,9 +28,5 @@ export const linkList = [
   {
     id: 7,
     title: "newWind",
-  },
-  {
-    id: 5,
-    title: "footer",
-  },
+  }
 ];
