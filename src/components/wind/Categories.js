@@ -14,10 +14,9 @@ const Categories = ({ setActiveCategory, activeCategory }) => {
           onChange={(e) => setActiveCategory(e.target.value)}
           className="bg-black text-lightblue m-3 text-xl"
         >
-          <option value="">---</option>
           {categoryList.map((cat) => (
             <option key={cat.key} value={cat.value}>
-              {cat.category}
+              {cat.value}
             </option>
           ))}
         </select>
