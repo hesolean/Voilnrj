@@ -18,7 +18,7 @@ const Categories = ({ setActiveCategory, activeCategory }) => {
             >
                 <option value=''>---</option>
                 {categoryList.map((cat) => (
-                    <option key={cat.id} value={cat.category}>
+                    <option key={cat.key} value={cat.value}>
                         {cat.category}
                     </option>
                 ))}

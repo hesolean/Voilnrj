@@ -14,15 +14,17 @@ const initialValues = {
   amount: 0,
 };
 
-const onSubmit = (values) => {};
+const onSubmit = (values) => {
+  console.log('New : ' + Form.values)
+};
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Requis"),
   description: Yup.string().required("Requis"),
   category: Yup.string().required("Requis"),
   price: Yup.number().required("Requis"),
-  cover: Yup.string().notRequired(),
-  amount: Yup.number().notRequired(),
+  // cover: Yup.string().notRequired(),
+  // amount: Yup.number().notRequired(),
 });
 
 // début du composant
@@ -62,7 +64,7 @@ const NewWind = () => {
                   control="input"
                   type="text"
                   label="Nom du produit"
-                  name="nom"
+                  name="name"
                 />
 
                 <FormikControl
@@ -86,7 +88,7 @@ const NewWind = () => {
                 <FormikControl
                   control="select"
                   label="Catégorie"
-                  name="categorie"
+                  name="category"
                   options={categoryList}
                 />
 
@@ -106,7 +108,7 @@ const NewWind = () => {
                   control="input"
                   type="number"
                   label="Prix du produit"
-                  name="prix"
+                  name="price"
                 />
 
                 {/* <label htmlFor="cover" className="text-3xl mb-3 mt-8 mr-3">
