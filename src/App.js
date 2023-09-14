@@ -8,8 +8,8 @@ import SocialLinks from './components/SocialLinks';
 import Contact from './components/Contact';
 import Footer from './components/layout/Footer';
 // import Connexion from './components/Connexion';
-import Login from './components/Login.js'
-import Profil from './components/Profil';
+import Login from './components/registration/Login'
+import Profil from './components//registration/Profil';
 
 function App() {
   
