@@ -18,14 +18,14 @@ const Navbar = () => {
       {/* hidden pour cacher suivant la largeur de l'écran */}
       <ul className="hidden md:flex">
         {/* itère sur la liste des liens du menu */}
-        {linkList.map(({ title, id }) => (
+        {linkList.map(({ title, id, name }) => (
           <li
             key={id} // la clé est obligatoire dans les listes
             className="px-4 cursor-pointer capitalize font-medium text-black hover:scale-105 duration-200"
           >
             {/* utilise le smooth de react pour faire glisser la page vers la section du menu */}
             <Link to={title} smooth duration={500}>
-              {title}
+              {name}
             </Link>
           </li>
         ))}
