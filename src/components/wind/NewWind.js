@@ -1,9 +1,9 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { categoryList } from "../../datas/categoryList";
 import * as Yup from "yup";
 // import TextError from "../formik/TextError";
 import FormikControl from "../formik/FormikControl";
+import { categoryList } from "../../datas/categoryList";
 
 const initialValues = {
   windName: "",
