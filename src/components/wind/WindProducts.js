@@ -39,12 +39,12 @@ const WindProducts = ({ cart, updateCart }) => {
             setActiveCategory={setActiveCategory}
             activeCategory={activeCategory}
 		/>
-
+        
         <ul className='flex flex-wrap m-30'>
             {windList.map(
                 ({id, name, price, cover, category}) =>
                 !activeCategory || activeCategory === category ? (
-                    <div key={id}>
+                    <div key={id} className='flex flex-col justify-center items-center'>
                         <WindItem
                             cover={cover}
                             name={name}

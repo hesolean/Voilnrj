@@ -8,7 +8,9 @@ import TextError from "./TextError";
 //<FormikControl control='checkbox' label='Checkbox topic' name='checkboxOption' options={checkboxOptions}/>
 
 function CheckBox(props) {
+  //constantes pour définir une checkbox
   const { label, name, options, ...rest } = props;
+  
   return (
     <div className="flex flex-col my-3">
       <label htmlFor={name} className="text-2xl mr-3">
