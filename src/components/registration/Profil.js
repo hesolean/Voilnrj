@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import * as Yup from "yup";
-import TextError from "./formik/TextError";
+import TextError from "../formik/TextError";
 
 const initialValues = {
   profilName: "",
