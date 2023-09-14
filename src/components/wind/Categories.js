@@ -1,6 +1,7 @@
 import React from 'react'
+import { categoryList } from '../../datas/categoryList'
 
-const Categories = ({ setActiveCategory, categories, activeCategory }) => {
+const Categories = ({ setActiveCategory, activeCategory }) => {
     
   return (
     <div>
@@ -16,9 +17,9 @@ const Categories = ({ setActiveCategory, categories, activeCategory }) => {
                 className='bg-black text-lightblue m-3 text-xl'
             >
                 <option value=''>---</option>
-                {categories.map((cat) => (
-                    <option key={cat} value={cat}>
-                        {cat}
+                {categoryList.map((cat) => (
+                    <option key={cat.id} value={cat.category}>
+                        {cat.category}
                     </option>
                 ))}
             </select>

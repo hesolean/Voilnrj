@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { windList } from '../datas/windList'
+import { windList } from '../../datas/windList'
 import WindItem from './WindItem'
 import Categories from './Categories'
 
@@ -7,11 +7,7 @@ const WindProducts = ({ cart, updateCart }) => {
     // variable pour l'affichage des catégories pour le filtre
     const [activeCategory, setActiveCategory] = useState('')
 
-    const categories = windList.reduce(
-        (acc, elem) =>
-        acc.includes(elem.category) ? acc : acc.concat(elem.category),
-        []
-    )
+    
 
     /**
      * ajoute des éléments dans le panier
@@ -40,7 +36,6 @@ const WindProducts = ({ cart, updateCart }) => {
         className='w-full flex flex-wrap pt-[100px] bg-gradient-to-b from-darkblue to-lightblue' 
     >
         <Categories
-            categories={categories}
             setActiveCategory={setActiveCategory}
             activeCategory={activeCategory}
 		/>

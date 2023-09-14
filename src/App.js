@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Home from './components/Home';
 import Navbar from './components/layout/Navbar';
-import Cart from './components/Cart'
-import WindProducts from './components/WindProducts';
-import NewWind from './components/NewWind';
+import Cart from './components/wind/Cart'
+import WindProducts from './components/wind/WindProducts';
+import NewWind from './components/wind/NewWind';
 import SocialLinks from './components/SocialLinks';
 import Contact from './components/Contact';
 import Footer from './components/layout/Footer';
