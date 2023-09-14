@@ -1,20 +1,29 @@
 import React, { useState } from "react";
-import logo from '../../assets/logo.jpeg'
-
+import logo from "../../assets/logo.jpeg";
 
 const Footer = () => {
+  //constantes liées aux données des 2 champs
   const [message, setMessage] = useState("");
   const [inputValue, setInputValue] = useState("");
 
+  /**
+   * soumission des données du champs au click
+   * @param {*} e
+   */
   function handleSubmit(e) {
     e.preventDefault();
-	if (inputValue) {
-		alert(
-      `Merci d'avoir partage ${message} avec moi. Je vous répondrai à l'adresse ${inputValue}.`
-    );
-	}
-    
+    //ne soumet que si un adresse mail est renseignée
+    if (inputValue) {
+      alert(
+        `Merci d'avoir partage ${message} avec moi. Je vous répondrai à l'adresse ${inputValue}.`
+      );
+    }
   }
+
+  /**
+   * récupération des valeurs de champs pour mettre à jour les variables
+   * @param {*} e
+   */
   function handleInput(e) {
     setInputValue(e.target.value);
   }
@@ -35,11 +44,14 @@ const Footer = () => {
       <footer className="text-light p-4 border-t-black border-2 text-xl bg-gradient-to-b from-darkblue to-gray grid grid-cols-1 md:grid-cols-2">
         <div className="flex flex-col justify-center items-center">
           <h3 className="mb-2 text-center">
-            Partagez avec moi sur notre passion commune :{" "}
-            <br/><u>brasser du vent !</u>
+            Partagez avec moi sur notre passion commune : <br />
+            <u>brasser du vent !</u>
           </h3>
-		  <img className="rounded-2xl w-32 my-auto" src={logo} alt='logo voilnrj'/>
-
+          <img
+            className="rounded-2xl w-32 my-auto"
+            src={logo}
+            alt="logo voilnrj"
+          />
         </div>
         <div>
           <form
