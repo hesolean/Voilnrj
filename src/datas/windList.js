@@ -8,6 +8,7 @@ import frais from '../assets/vent frais.jpg'
 export const windList = [
     {
         name: "brise",
+        description: '',
         category: "léger",
         id: "1b",
         price: 1530,
@@ -16,6 +17,7 @@ export const windList = [
     },
     {
         name: "frais",
+        description: '',
         category: "léger",
         id: "1f",
         price: 2410,
@@ -24,6 +26,7 @@ export const windList = [
     },
     {
         name: "fort",
+        description: '',
         category: "ça se corse",
         id: "2f",
         price: 4230,
@@ -32,6 +35,7 @@ export const windList = [
     },
     {
         name: "coups",
+        description: '',
         category: "ça se corse",
         id: "2c",
         price: 7360,
@@ -40,6 +44,7 @@ export const windList = [
     },
     {
         name: "tempete",
+        description: '',
         category: "ça craint",
         id: "3t",
         price: 9500,
@@ -48,6 +53,7 @@ export const windList = [
     },
     {
         name: "ouragan",
+        description: '',
         category: "ça craint",
         id: "3o",
         price: 11235,

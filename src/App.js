@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import Home from './components/Home';
-import Navbar from './components/Navbar';
-import Cart from './components/Cart'
-import WindProducts from './components/WindProducts';
+import Navbar from './components/layout/Navbar';
+import Cart from './components/wind/Cart'
+import WindProducts from './components/wind/WindProducts';
+import NewWind from './components/wind/NewWind';
 import SocialLinks from './components/SocialLinks';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Footer from './components/layout/Footer';
+// import Connexion from './components/Connexion';
+import Login from './components/registration/Login'
+import Profil from './components//registration/Profil';
 
 function App() {
   
@@ -36,6 +40,10 @@ function App() {
         updateCart={updateCart}
       />
       <Contact />
+      <Login />
+      <Profil />
+      <NewWind />
+
       <Footer/>
       
       <SocialLinks/>
