@@ -21,7 +21,7 @@ function Login() {
   return (
     <div
       name="login"
-      className="w-full bg-gradient-to-b from-lightblue to-darkblue text-dark md:h-screen"
+      className="w-full bg-gradient-to-b from-darkblue to-lightblue text-dark md:h-screen"
     >
       <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
         <div className="pb-8">
