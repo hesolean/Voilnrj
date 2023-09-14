@@ -2,11 +2,11 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { categoryList } from "../../datas/categoryList";
 import * as Yup from "yup";
-import TextError from "../formik/TextError";
+// import TextError from "../formik/TextError";
 import FormikControl from "../formik/FormikControl";
 
 const initialValues = {
-  name: "",
+  windName: "",
   description: "",
   category: "",
   price: 0,
@@ -15,11 +15,11 @@ const initialValues = {
 };
 
 const onSubmit = (values) => {
-  console.log('New : ' + Form.values)
+  console.log('New : ', values)
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("Requis"),
+  windName: Yup.string().required("Requis"),
   description: Yup.string().required("Requis"),
   category: Yup.string().required("Requis"),
   price: Yup.number().required("Requis"),
@@ -64,7 +64,7 @@ const NewWind = () => {
                   control="input"
                   type="text"
                   label="Nom du produit"
-                  name="name"
+                  name="windName"
                 />
 
                 <FormikControl

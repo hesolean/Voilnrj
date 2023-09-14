@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import TextError from "./formik/TextError";
 
 const initialValues = {
-  name: "",
+  profilName: "",
   foreName: "",
   adress: {
     number: "",
@@ -16,7 +16,7 @@ const initialValues = {
 };
 
 const savedValues = {
-    name: "Jackson",
+  profilName: "Jackson",
     foreName: "Mickael",
     adress: {
       number: "222",
@@ -85,8 +85,8 @@ function Profil() {
                   </label>
                   <Field
                     type="text"
-                    id="name"
-                    name="name"
+                    id="profilName"
+                    name="profilName"
                     placeholder="Entrez votre nom"
                     className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                   />
