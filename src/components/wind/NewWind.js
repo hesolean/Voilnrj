@@ -1,24 +1,30 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { categoryList } from "../../datas/categoryList";
 import * as Yup from "yup";
-import TextError from "./TextError";
+import TextError from "../formik/TextError";
+import FormikControl from "../formik/FormikControl";
 
 const initialValues = {
   name: "",
+  description: "",
   category: "",
   price: 0,
   cover: "",
   amount: 0,
 };
 
-const onSubmit = (values) => {};
+const onSubmit = (values) => {
+  console.log('New : ' + Form.values)
+};
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Requis"),
+  description: Yup.string().required("Requis"),
   category: Yup.string().required("Requis"),
   price: Yup.number().required("Requis"),
-  cover: Yup.string().notRequired(),
-  amount: Yup.number().notRequired(),
+  // cover: Yup.string().notRequired(),
+  // amount: Yup.number().notRequired(),
 });
 
 // début du composant
@@ -39,9 +45,10 @@ const NewWind = () => {
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
-          <div className="flex justify-center items-center mt-10">
-            <Form className="flex flex-col w-full md:w-1/2">
-                <label htmlFor="identifiant" className="text-3xl m-3">
+          {(formik) => (
+            <div className="flex justify-center items-center">
+              <Form className="flex flex-col w-full md:w-1/2">
+                {/* <label htmlFor="identifiant" className="text-3xl m-3">
                   Nom
                 </label>
                 <Field
@@ -51,9 +58,22 @@ const NewWind = () => {
                   placeholder="Entrez le nom du produit"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
-                <ErrorMessage name="name" component={TextError} />
+                <ErrorMessage name="name" component={TextError} /> */}
 
-                <label htmlFor="category" className="text-3xl mb-3 mt-8 mr-3">
+                <FormikControl
+                  control="input"
+                  type="text"
+                  label="Nom du produit"
+                  name="name"
+                />
+
+                <FormikControl
+                  control="textarea"
+                  label="Description"
+                  name="description"
+                />
+
+                {/* <label htmlFor="category" className="text-3xl mb-3 mt-8 mr-3">
                   Catégorie
                 </label>
                 <Field
@@ -63,9 +83,16 @@ const NewWind = () => {
                   placeholder="Entrez la catégorie"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
-                <ErrorMessage name="category" component={TextError} />
+                <ErrorMessage name="category" component={TextError} /> */}
 
-                <label htmlFor="price" className="text-3xl mb-3 mt-8 mr-3">
+                <FormikControl
+                  control="select"
+                  label="Catégorie"
+                  name="category"
+                  options={categoryList}
+                />
+
+                {/* <label htmlFor="price" className="text-3xl mb-3 mt-8 mr-3">
                   Prix
                 </label>
                 <Field
@@ -75,9 +102,16 @@ const NewWind = () => {
                   placeholder="Entrez le prix"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
-                <ErrorMessage name="price" component={TextError} />
+                <ErrorMessage name="price" component={TextError} /> */}
 
-                <label htmlFor="cover" className="text-3xl mb-3 mt-8 mr-3">
+                <FormikControl
+                  control="input"
+                  type="number"
+                  label="Prix du produit"
+                  name="price"
+                />
+
+                {/* <label htmlFor="cover" className="text-3xl mb-3 mt-8 mr-3">
                   Image
                 </label>
                 <Field
@@ -87,16 +121,17 @@ const NewWind = () => {
                   placeholder="Choisissez l'image"
                   className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                 />
-                <ErrorMessage name="cover" component={TextError} />
+                <ErrorMessage name="cover" component={TextError} /> */}
 
-              <button
-                type="submit"
-                className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
-              >
-                Valider
-              </button>
-            </Form>
-          </div>
+                <button
+                  type="submit"
+                  className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
+                >
+                  Valider
+                </button>
+              </Form>
+            </div>
+          )}
         </Formik>
       </div>
     </div>
