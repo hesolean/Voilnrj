@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import TextError from "../formik/TextError";
 import { validationSchema } from "../services/ValidationSchemas";
+import axios from "axios";
 
 const initialValues = {
   profilName: "",
@@ -11,15 +12,7 @@ const initialValues = {
   profilPassword: "",
 };
 
-const savedValues = {
-  profilName: "Jackson",
-  foreName: "Mickael",
-  profilEmail: "michael.jackson@hollywoood.com",
-  phoneNumbers: ["0123456789"],
-  profilPassword: "KingOfPop-01",
-};
 const onSubmit = async (values, onSubmitProps) => {
-  console.log("first");
   try {
     console.log("Form data : ", values);
     console.log("submit props : ", onSubmitProps);
@@ -31,7 +24,20 @@ const onSubmit = async (values, onSubmitProps) => {
 };
 
 function Profil() {
+  const [profils, setProfils] = useState({})
   const [formValues, setFormValues] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8080/profils`)
+      .then((res) => {
+        setProfils(res)
+        console.log("profil : ", profils)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
   return (
     <div
       name="profil"
@@ -40,8 +46,9 @@ function Profil() {
       <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
         <div className="pb-2">
           <p className="text-4xl front-bold inline border-b-4 border-black">
-            Profil
+            Profil {`${profils.data[0].foreName}`}
           </p>
+          
         </div>
         <Formik
           //il test formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas
@@ -72,7 +79,7 @@ function Profil() {
                   />
                   <ErrorMessage name="name" component={TextError} />
 
-                  <label htmlFor="foreName" className="text-2xl my-3 mr-3 ml-6">
+                  <label htmlFor="foreName" className="text-2xl my-3">
                     Prénom
                   </label>
                   <Field
@@ -84,10 +91,7 @@ function Profil() {
                   />
                   <ErrorMessage name="foreName" component={TextError} />
 
-                  <label
-                    htmlFor="profilEmail"
-                    className="text-2xl my-3 mr-3 ml-6"
-                  >
+                  <label htmlFor="profilEmail" className="text-2xl my-3">
                     Email
                   </label>
                   <Field
@@ -99,56 +103,19 @@ function Profil() {
                   />
                   <ErrorMessage name="profilEmail" component={TextError} />
 
-                  <div className="mt-10">
-                    <label htmlFor="phone" className="text-2xl mb-3 mt-8 mr-3">
-                      Téléphone
-                    </label>
-                    <FieldArray
-                      name="phoneNumbers"
-                      className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
-                    >
-                      {(fieldArrayProps) => {
-                        //on extrait les information que l'on veut des méthodes
-                        const { push, remove, form } = fieldArrayProps;
-                        const { values } = form;
-                        const { phoneNumbers } = values;
-                        return (
-                          <div>
-                            {phoneNumbers.map((phoneNumber, index) => (
-                              <div key={index} className="flex flex-row m-1">
-                                <Field
-                                  className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
-                                  name={`phoneNumbers[${index}]`}
-                                />
-                                <button
-                                  className="px-3 py-1 ml-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
-                                  type="button"
-                                  onClick={() => push("")}
-                                >
-                                  {""}+{""}
-                                </button>
-                                {/* on empêche de clicker sur - s'il n'y a plus qu'un champ */}
-                                {index > 0 && (
-                                  <button
-                                    type="button"
-                                    className="px-3 py-1 ml-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
-                                    onClick={() => remove(index)}
-                                  >
-                                    {""}-{""}
-                                  </button>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        );
-                      }}
-                    </FieldArray>
-                  </div>
+                  <label htmlFor="phone" className="text-2xl my-3">
+                    Téléphone
+                  </label>
+                  <Field
+                    type="text"
+                    id="phoneNumbers"
+                    name="phoneNumbers"
+                    placeholder="Entrez votre mot de passe"
+                    className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
+                  />
+                  <ErrorMessage name="phoneNumbers" component={TextError} />
 
-                  <label
-                    htmlFor="profilPassword"
-                    className="text-2xl my-3 mr-3 ml-6"
-                  >
+                  <label htmlFor="profilPassword" className="text-2xl my-3">
                     Mot de passe
                   </label>
                   <Field
@@ -161,13 +128,6 @@ function Profil() {
                   <ErrorMessage name="profilPassword" component={TextError} />
 
                   <div className="flex flex-row justify-between w-full">
-                    <button
-                      type="button"
-                      onClick={() => setFormValues(savedValues)}
-                      className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
-                    >
-                      Recharger le formulaire
-                    </button>
                     <button
                       type="reset"
                       className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
