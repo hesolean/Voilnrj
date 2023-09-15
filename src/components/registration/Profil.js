@@ -3,6 +3,7 @@ import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
 import TextError from "../formik/TextError";
 import { validationSchema } from "../services/ValidationSchemas";
 import axios from "axios";
+import FormikControl from "../formik/FormikControl";
 
 const initialValues = {
   profilName: "",
@@ -24,15 +25,15 @@ const onSubmit = async (values, onSubmitProps) => {
 };
 
 function Profil() {
-  const [profils, setProfils] = useState({})
+  const [profils, setProfils] = useState({});
   const [formValues, setFormValues] = useState(null);
 
   useEffect(() => {
     axios
       .get(`http://localhost:8080/profils`)
       .then((res) => {
-        setProfils(res)
-        console.log("profil : ", profils)
+        setProfils(res);
+        console.log("profil : ", profils);
       })
       .catch((err) => {
         console.log(err);
@@ -46,20 +47,16 @@ function Profil() {
       <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
         <div className="pb-2">
           <p className="text-4xl front-bold inline border-b-4 border-black">
-            Profil {`${profils.data[0].foreName}`}
+            Profil
+            {/* {`${profils.data[0].foreName}`} */}
           </p>
-          
+          <p></p>
         </div>
         <Formik
           //il test formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas
           initialValues={formValues || initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
-          //on autorise à utiliser les savedValues
-          enableReinitialize
-          //on empêche la vérification de yup au changement et au blur
-          validateOnChange={false}
-          validateOnBlur={false}
         >
           {/* on donne accès à toutes les méthodes qui sont liées au formulaire */}
           {(formik) => {
@@ -67,65 +64,40 @@ function Profil() {
             return (
               <div className="flex justify-center items-center">
                 <Form className="flex flex-col w-full md:w-1/2">
-                  <label htmlFor="identifiant" className="text-2xl mr-3">
-                    Nom
-                  </label>
-                  <Field
+                  <FormikControl
+                    control="input"
                     type="text"
-                    id="profilName"
+                    label="Nom"
                     name="profilName"
-                    placeholder="Entrez votre nom"
-                    className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                   />
-                  <ErrorMessage name="name" component={TextError} />
 
-                  <label htmlFor="foreName" className="text-2xl my-3">
-                    Prénom
-                  </label>
-                  <Field
+                  <FormikControl
+                    control="input"
                     type="text"
-                    id="foreName"
+                    label="Prénom"
                     name="foreName"
-                    placeholder="Entrez votre prénom"
-                    className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                   />
-                  <ErrorMessage name="foreName" component={TextError} />
 
-                  <label htmlFor="profilEmail" className="text-2xl my-3">
-                    Email
-                  </label>
-                  <Field
+                  <FormikControl
+                    control="input"
                     type="text"
-                    id="profilEmail"
+                    label="Email"
                     name="profilEmail"
-                    placeholder="Entrez votre email"
-                    className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                   />
-                  <ErrorMessage name="profilEmail" component={TextError} />
 
-                  <label htmlFor="phone" className="text-2xl my-3">
-                    Téléphone
-                  </label>
-                  <Field
+                  <FormikControl
+                    control="input"
                     type="text"
-                    id="phoneNumbers"
+                    label="Téléphone"
                     name="phoneNumbers"
-                    placeholder="Entrez votre mot de passe"
-                    className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                   />
-                  <ErrorMessage name="phoneNumbers" component={TextError} />
 
-                  <label htmlFor="profilPassword" className="text-2xl my-3">
-                    Mot de passe
-                  </label>
-                  <Field
+                  <FormikControl
+                    control="input"
                     type="text"
-                    id="profilPassword"
+                    label="Mot de passe"
                     name="profilPassword"
-                    placeholder="Entrez votre mot de passe"
-                    className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
                   />
-                  <ErrorMessage name="profilPassword" component={TextError} />
 
                   <div className="flex flex-row justify-between w-full">
                     <button
