@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
-import * as Yup from "yup";
 import TextError from "../formik/TextError";
+import { validationSchema } from "../services/ValidationSchemas";
 
 const initialValues = {
   profilName: "",
@@ -29,15 +29,6 @@ const onSubmit = async (values, onSubmitProps) => {
     console.error("Erreur lors de la soumission : ", error);
   }
 };
-const validationSchema = Yup.object({
-  profilName: Yup.string().required("Requis"),
-  foreName: Yup.string().required("Requis"),
-  profilEmail: Yup.string().email("Format email invalide").required("Requis"),
-  phoneNumbers: Yup.array()
-    .of(Yup.string().matches(/^\d{10}$/))
-    .required("Requis"),
-  profilPassword: Yup.string().required("Requis"),
-});
 
 function Profil() {
   const [formValues, setFormValues] = useState(null);
