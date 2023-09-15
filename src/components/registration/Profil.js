@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Formik, Form, Field, ErrorMessage, FieldArray } from "formik";
-import TextError from "../formik/TextError";
+import { Formik, Form } from "formik";
 import { validationSchema } from "../services/ValidationSchemas";
 import axios from "axios";
 import FormikControl from "../formik/FormikControl";
 
-const initialValues = {
+let initialValues = {
   profilName: "",
   foreName: "",
   profilEmail: "",
@@ -25,6 +24,7 @@ const onSubmit = async (values, onSubmitProps) => {
 };
 
 function Profil() {
+  const [index, setIndex] = useState("");
   const [profils, setProfils] = useState({});
   const [formValues, setFormValues] = useState(null);
 
@@ -39,22 +39,40 @@ function Profil() {
         console.log(err);
       });
   });
+
+  // const handleClick = () => {
+  //   initialValues = profils.data[index];
+  //   console.log("initial values", initialValues);
+  // };
   return (
     <div
       name="profil"
       className="w-full bg-gradient-to-b from-lightblue to-darkblue text-dark md:h-screen"
     >
       <div className="flex flex-col p-4 justify-center max-w-screen-lg mx-auto h-full">
-        <div className="pb-2">
+        <div className="pb-2 flex flex-row justify-around">
           <p className="text-4xl front-bold inline border-b-4 border-black">
             Profil
-            {/* {`${profils.data[0].foreName}`} */}
           </p>
-          <p></p>
+          {/* <div>
+            <label>Donnez l'indice : </label>
+            <input
+              type="number"
+              name="index"
+              value={index}
+              onChange={(e) => {
+                setIndex(e.target.value);
+              }}
+            />
+            <button type="submit" onClick={handleClick}>
+              Valider
+            </button>
+          </div> */}
+          {/* <span> {profils.data[index].foreName ? `${profils.data[index].foreName}` : ""} </span> */}
         </div>
         <Formik
           //il test formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas
-          initialValues={formValues || initialValues}
+          initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
