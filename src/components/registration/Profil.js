@@ -16,6 +16,9 @@ const onSubmit = async (values, onSubmitProps) => {
   try {
     console.log("Form data : ", values);
     console.log("submit props : ", onSubmitProps);
+    axios.post(`http://localhost:8080/profils`, values).then((res) => {
+      console.log(res);
+    });
     onSubmitProps.setSubmitting(false);
     onSubmitProps.resetForm();
   } catch (error) {
@@ -24,16 +27,17 @@ const onSubmit = async (values, onSubmitProps) => {
 };
 
 function Profil() {
-  const [index, setIndex] = useState("");
+  // const [index, setIndex] = useState("");
   const [profils, setProfils] = useState({});
   const [formValues, setFormValues] = useState(null);
-
+  const profilList = profils.data;
   useEffect(() => {
     axios
       .get(`http://localhost:8080/profils`)
       .then((res) => {
         setProfils(res);
-        console.log("profil : ", profils);
+        // console.log("prolfil list : ", profilList);
+        // console.log("profil : ", profils);
       })
       .catch((err) => {
         console.log(err);
@@ -68,17 +72,26 @@ function Profil() {
               Valider
             </button>
           </div> */}
-          {/* <span> {profils.data[index].foreName ? `${profils.data[index].foreName}` : ""} </span> */}
+
+          {/* affichage de la liste des profils récupérés dans le get */}
+          <ul>
+            {profilList.map((item) => (
+              <li key={item.id}>
+                {" "}
+                {item.profilName ? `${item.profilName}` : ""}{" "}
+              </li>
+            ))}
+          </ul>
         </div>
         <Formik
-          //il test formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas
+          //il teste formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
           {/* on donne accès à toutes les méthodes qui sont liées au formulaire */}
           {(formik) => {
-            console.log("formik : ", formik);
+            // console.log("formik : ", formik);
             return (
               <div className="flex justify-center items-center">
                 <Form className="flex flex-col w-full md:w-1/2">
