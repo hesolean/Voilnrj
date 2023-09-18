@@ -1,67 +1,61 @@
-import React, { useState } from 'react'
-import { windList } from '../../datas/windList'
-import WindItem from './WindItem'
-import Categories from './Categories'
+import React, { useState } from "react";
+
+//composants
+import WindItem from "./WindItem";
+import Categories from "./Categories";
+
+//local data
+import { windList } from "../../datas/windList";
 
 const WindProducts = ({ cart, updateCart }) => {
-    // variable pour l'affichage des catégories pour le filtre
-    const [activeCategory, setActiveCategory] = useState('')
+  // variable pour l'affichage des catégories pour le filtre
+  const [activeCategory, setActiveCategory] = useState("");
 
-    
-
-    /**
-     * ajoute des éléments dans le panier
-     * @param {string} name 
-     * @param {number} price 
-     */
-    function addToCart(name, price) {
-		const currentWindAdded = cart.find((wind) => wind.name === name)
-		if (currentWindAdded) {
-			const cartFilteredCurrentWind = cart.filter(
-				(wind) => wind.name !== name
-			)
-			updateCart([
-				...cartFilteredCurrentWind,
-				{ name, price, amount: currentWindAdded.amount + 1 }
-			])
-		} else {
-			updateCart([...cart, { name, price, amount: 1 }])
-		}
-        alert("Ajouté à la voile !")
-	}
-
+  /**
+   * ajoute des éléments dans le panier
+   * @param {string} name
+   * @param {number} price
+   */
+  function addToCart(name, price) {
+    const currentWindAdded = cart.find((wind) => wind.name === name);
+    if (currentWindAdded) {
+      const cartFilteredCurrentWind = cart.filter((wind) => wind.name !== name);
+      updateCart([
+        ...cartFilteredCurrentWind,
+        { name, price, amount: currentWindAdded.amount + 1 },
+      ]);
+    } else {
+      updateCart([...cart, { name, price, amount: 1 }]);
+    }
+    alert("Ajouté à la voile !");
+  }
   return (
-    <div 
-        name="windProducts" 
-        className='w-full flex flex-wrap pt-[100px] bg-gradient-to-b from-darkblue to-lightblue' 
+    <div
+      name="windProducts"
+      className="w-full flex flex-wrap pt-[100px] bg-gradient-to-b from-darkblue to-lightblue"
     >
-        <Categories
-            setActiveCategory={setActiveCategory}
-            activeCategory={activeCategory}
-		/>
-        
-        <ul className='flex flex-wrap m-30'>
-            {windList.map(
-                ({id, name, price, cover, category}) =>
-                !activeCategory || activeCategory === category ? (
-                    <div key={id} className='flex flex-col justify-center items-center'>
-                        <WindItem
-                            cover={cover}
-                            name={name}
-                            price={price}
-                        /> 
-                        <button 
-                            className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
-                            onClick={() => addToCart(name, price)}
-                        >
-                            Ajouter à la voile
-                        </button>
-                    </div>
-                ) : null 
-            )}
-        </ul>
-    </div>
-  )
-}
+      <Categories
+        setActiveCategory={setActiveCategory}
+        activeCategory={activeCategory}
+      />
 
-export default WindProducts
+      <ul className="flex flex-wrap m-30">
+        {windList.map(({ id, name, price, cover, category }) =>
+          !activeCategory || activeCategory === category ? (
+            <div key={id} className="flex flex-col justify-center items-center">
+              <WindItem cover={cover} name={name} price={price} />
+              <button
+                className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
+                onClick={() => addToCart(name, price)}
+              >
+                Ajouter à la voile
+              </button>
+            </div>
+          ) : null
+        )}
+      </ul>
+    </div>
+  );
+};
+
+export default WindProducts;

@@ -1,8 +1,12 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 // import TextError from "../formik/TextError";
+
+//composants
 import FormikControl from "../formElements/FormikControl";
 import { categoryList } from "../../datas/categoryList";
+
+//services
 import { newWindValidationSchema } from "../services/ValidationSchemas";
 
 const initialValues = {

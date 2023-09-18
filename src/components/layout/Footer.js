@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+//images
 import logo from "../../assets/logo.jpeg";
 
 const Footer = () => {
