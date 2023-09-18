@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
-import { validationSchema } from "../services/ValidationSchemas";
+import { profilValidationSchema } from "../services/ValidationSchemas";
 import axios from "axios";
-import FormikControl from "../formik/FormikControl";
+import FormikControl from "../formElements/FormikControl";
 
 let initialValues = {
   profilName: "",
@@ -73,7 +73,7 @@ function Profil() {
         <Formik
           //il test formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas
           initialValues={initialValues}
-          validationSchema={validationSchema}
+          validationSchema={profilValidationSchema}
           onSubmit={onSubmit}
         >
           {/* on donne accès à toutes les méthodes qui sont liées au formulaire */}

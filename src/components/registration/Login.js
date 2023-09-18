@@ -1,18 +1,13 @@
 import React from "react";
-import FormikControl from "../formik/FormikControl";
+import FormikControl from "../formElements/FormikControl";
+import { loginValidationSchema } from "../services/ValidationSchemas";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 
 function Login() {
   const initialValues = {
     email: "",
     password: "",
   };
-
-  const validationSchema = Yup.object({
-    email: Yup.string().email("Email invalide").required("Requis"),
-    password: Yup.string().required("Requis"),
-  });
 
   const onSubmit = (values) => {
     console.log("LoginForm : ", values);
@@ -31,7 +26,7 @@ function Login() {
         </div>
         <Formik
           initialValues={initialValues}
-          validationSchema={validationSchema}
+          validationSchema={loginValidationSchema}
           onSubmit={onSubmit}
         >
           {(formik) => {
