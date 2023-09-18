@@ -1,4 +1,6 @@
 import React from "react";
+
+//local data
 import { categoryList } from "../../datas/categoryList";
 
 const Categories = ({ setActiveCategory, activeCategory }) => {
