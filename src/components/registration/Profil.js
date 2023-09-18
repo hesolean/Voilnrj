@@ -31,6 +31,7 @@ function Profil() {
   const [profils, setProfils] = useState({});
   const [formValues, setFormValues] = useState(null);
   const profilList = profils.data;
+
   useEffect(() => {
     axios
       .get(`http://localhost:8080/profils`)
@@ -73,15 +74,16 @@ function Profil() {
             </button>
           </div> */}
 
-          {/* affichage de la liste des profils récupérés dans le get */}
-          <ul>
+          {/* affichage de la liste des profils récupérés dans le get mais bug une fois sur 2 !!!!*/}
+          {/* <ul>
             {profilList.map((item) => (
               <li key={item.id}>
                 {" "}
                 {item.profilName ? `${item.profilName}` : ""}{" "}
               </li>
             ))}
-          </ul>
+          </ul> */}
+          
         </div>
         <Formik
           //il teste formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas

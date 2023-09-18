@@ -12,7 +12,7 @@ export const linkList = [
 
   {
     id: 62,
-    name: "Profil",
+    name: "Nouveau Profil",
     title: "profil",
   },
   {
