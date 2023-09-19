@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+
 import { Formik, Form } from "formik";
-import { profilValidationSchema } from "../services/ValidationSchemas";
-import axios from "axios";
 import FormikControl from "../formElements/FormikControl";
+
+import axios from "axios";
+
+import { profilValidationSchema } from "../services/ValidationSchemas";
 
 let initialValues = {
   profilName: "",
@@ -28,15 +31,14 @@ const onSubmit = async (values, onSubmitProps) => {
 
 function Profil() {
   // const [index, setIndex] = useState("");
-  const [profils, setProfils] = useState({});
+  const [profils, setProfils] = useState([]);
   const [formValues, setFormValues] = useState(null);
-  const profilList = profils.data;
 
   useEffect(() => {
     axios
       .get(`http://localhost:8080/profils`)
       .then((res) => {
-        setProfils(res);
+        setProfils(res.data);
         // console.log("prolfil list : ", profilList);
         // console.log("profil : ", profils);
       })
@@ -75,14 +77,14 @@ function Profil() {
           </div> */}
 
           {/* affichage de la liste des profils récupérés dans le get mais bug une fois sur 2 !!!!*/}
-          {/* <ul>
-            {profilList.map((item) => (
+          <ul>
+            {profils.map((item) => (
               <li key={item.id}>
                 {" "}
                 {item.profilName ? `${item.profilName}` : ""}{" "}
               </li>
             ))}
-          </ul> */}
+          </ul>
           
         </div>
         <Formik
