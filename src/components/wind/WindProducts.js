@@ -45,6 +45,15 @@ const WindProducts = ({ cart, updateCart }) => {
         alert("Ajouté à la voile !")
 	}
 
+    function totalDelete(id) {
+        console.log("id :",id)
+        axios.delete(`http://localhost:8080/winds/${id}`).then(res => {
+            // alert(res.data," : Vent supprimé définitivement !")
+            console.log('delete : ', id)
+        }).catch(err => {
+            console.error('Erreur lors de la suppression :', err.res)
+        })
+    }
   return (
     <div 
         name="windProducts" 
@@ -70,6 +79,12 @@ const WindProducts = ({ cart, updateCart }) => {
                             onClick={() => addToCart(windName, windPrice)}
                         >
                             Ajouter à la voile
+                        </button>
+                        <button 
+                            className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
+                            onClick={() => totalDelete(id)}
+                        >
+                            Supprimer de la gamme
                         </button>
                     </div>
                 ) : null 
