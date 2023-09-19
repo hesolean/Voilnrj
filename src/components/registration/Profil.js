@@ -44,7 +44,6 @@ function Profil() {
       });
   });
 
- 
   return (
     <div
       name="profil"
@@ -79,7 +78,6 @@ function Profil() {
               </li>
             ))}
           </ul>
-          
         </div>
         <Formik
           //il teste formValues. Si absent, il prend initialValues. L'inverse ne fonctionne pas

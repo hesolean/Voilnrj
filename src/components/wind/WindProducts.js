@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
+import axios from 'axios'
+
 import { windList } from '../../datas/windList'
+
 import WindItem from './WindItem'
 import Categories from './Categories'
 
@@ -7,7 +11,18 @@ const WindProducts = ({ cart, updateCart }) => {
     // variable pour l'affichage des catégories pour le filtre
     const [activeCategory, setActiveCategory] = useState('')
 
-    
+    const [winds, setWinds] = useState([]);
+
+    useEffect(() => {
+      axios
+        .get(`http://localhost:8080/winds`)
+        .then((res) => {
+          setWinds(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
 
     /**
      * ajoute des éléments dans le panier
@@ -30,6 +45,13 @@ const WindProducts = ({ cart, updateCart }) => {
         alert("Ajouté à la voile !")
 	}
 
+    function totalDelete(id) {
+        axios.delete(`http://localhost:8080/winds/${id}`).then(res => {
+            alert("Vent supprimé définitivement !")
+        }).catch(err => {
+            console.error('Erreur lors de la suppression :', err.res)
+        })
+    }
   return (
     <div 
         name="windProducts" 
@@ -41,20 +63,26 @@ const WindProducts = ({ cart, updateCart }) => {
 		/>
         
         <ul className='flex flex-wrap m-30'>
-            {windList.map(
-                ({id, name, price, cover, category}) =>
+            {winds.map(
+                ({id, windName, windPrice, windCover, category}) =>
                 !activeCategory || activeCategory === category ? (
                     <div key={id} className='flex flex-col justify-center items-center'>
                         <WindItem
-                            cover={cover}
-                            name={name}
-                            price={price}
+                            windCover={windCover}
+                            windName={windName}
+                            windPrice={windPrice}
                         /> 
                         <button 
                             className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
-                            onClick={() => addToCart(name, price)}
+                            onClick={() => addToCart(windName, windPrice)}
                         >
                             Ajouter à la voile
+                        </button>
+                        <button 
+                            className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
+                            onClick={() => totalDelete(id)}
+                        >
+                            Supprimer de la gamme
                         </button>
                     </div>
                 ) : null 
