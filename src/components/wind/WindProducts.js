@@ -46,10 +46,8 @@ const WindProducts = ({ cart, updateCart }) => {
 	}
 
     function totalDelete(id) {
-        console.log("id :",id)
         axios.delete(`http://localhost:8080/winds/${id}`).then(res => {
-            // alert(res.data," : Vent supprimé définitivement !")
-            console.log('delete : ', id)
+            alert("Vent supprimé définitivement !")
         }).catch(err => {
             console.error('Erreur lors de la suppression :', err.res)
         })
