@@ -10,7 +10,7 @@ import { newWindValidationSchema } from "../services/ValidationSchemas";
 
 const initialValues = {
   windName: "",
-  description: "",
+  windDescription: "",
   category: "",
   price: 0,
   cover: "",
@@ -63,7 +63,7 @@ function NewWind() {
                 <FormikControl
                   control="textarea"
                   label="Description"
-                  name="description"
+                  name="windDescription"
                 />
 
                 <FormikControl
