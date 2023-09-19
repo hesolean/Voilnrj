@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 import axios from 'axios'
 
-import { windList } from '../../datas/windList'
-
 import WindItem from './WindItem'
 import Categories from './Categories'
 
