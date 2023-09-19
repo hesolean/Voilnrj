@@ -1,23 +1,31 @@
 import React from "react";
 
-import axios from 'axios'
+import axios from "axios";
 
 import { Formik, Form } from "formik";
 import FormikControl from "../formElements/FormikControl";
 
 import { categoryList } from "../../datas/categoryList";
+import { coverList } from "../../datas/coverList"
 import { newWindValidationSchema } from "../services/ValidationSchemas";
+
+// import brise from '../assets/brise.jpg'
+// import coups from '../assets/forts coups de vent.jpg'
+// import ouragan from '../assets/ouragan.jfif'
+// import tempete from '../assets/tempête.jpg'
+// import fort from '../assets/vent fort.jpg'
+// import frais from '../assets/vent frais.jpg'
 
 const initialValues = {
   windName: "",
   windDescription: "",
-  category: "",
-  price: 0,
-  cover: "",
+  windCategory: "",
+  windPrice: 0,
+  windCover: "",
   amount: 0,
 };
 
-const onSubmit =  async (values, onSubmitProps) => {
+const onSubmit = async (values, onSubmitProps) => {
   try {
     console.log("Form data : ", values);
     console.log("submit props : ", onSubmitProps);
@@ -52,7 +60,6 @@ function NewWind() {
           {(formik) => (
             <div className="flex justify-center items-center">
               <Form className="flex flex-col w-full md:w-1/2">
-
                 <FormikControl
                   control="input"
                   type="text"
@@ -69,7 +76,7 @@ function NewWind() {
                 <FormikControl
                   control="select"
                   label="Catégorie"
-                  name="category"
+                  name="windCategory"
                   options={categoryList}
                 />
 
@@ -77,7 +84,14 @@ function NewWind() {
                   control="input"
                   type="number"
                   label="Prix du produit"
-                  name="price"
+                  name="windPrice"
+                />
+
+                <FormikControl
+                  control="select"
+                  label="Image"
+                  name="windCover"
+                  options={coverList}
                 />
 
                 <button
@@ -93,6 +107,6 @@ function NewWind() {
       </div>
     </div>
   );
-};
+}
 
 export default NewWind;
