@@ -17,8 +17,6 @@ export const profilValidationSchema = Yup.object({
   export const newWindValidationSchema = Yup.object({
     windName: Yup.string().required("Requis"),
     windDescription: Yup.string().required("Requis"),
-    category: Yup.string().required("Requis"),
-    price: Yup.number().required("Requis"),
-    // cover: Yup.string().notRequired(),
-    // amount: Yup.number().notRequired(),
+    windCategory: Yup.string().required("Requis"),
+    windPrice: Yup.number().required("Requis")
   });
