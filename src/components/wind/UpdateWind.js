@@ -10,11 +10,11 @@ import { coverList } from "../../datas/coverList";
 
 import { newWindValidationSchema } from "../services/ValidationSchemas";
 
-const handleSubmit = async (values, onSubmitProps) => {
+const handleSubmit = (values, onSubmitProps) => {
   try {
     console.log("Form data : ", values);
     console.log("submit props : ", onSubmitProps);
-    axios.put(`http://localhost:8080/winds`, values).then((res) => {
+    axios.put(`http://localhost:8080/winds/${values.id}`, values).then((res) => {
       console.log(res);
     });
     onSubmitProps.setSubmitting(false);
@@ -38,7 +38,7 @@ function UpdateWind(id) {
       .get(`http://localhost:8080/winds/${id.id}`)
       .then((res) => {
         setUpdatedWind(res.data);
-        console.log("updatedWind ", updatedWind);
+        // console.log("updatedWind ", updatedWind);
       })
       .catch((err) => {
         console.log(err);
