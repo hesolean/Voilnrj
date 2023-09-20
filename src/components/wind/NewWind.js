@@ -64,7 +64,7 @@ const NewWind = () => {
                 <FormikControl
                   control="textarea"
                   label="Description"
-                  name="description"
+                  name="windDescription"
                 />
 
                 <FormikControl
