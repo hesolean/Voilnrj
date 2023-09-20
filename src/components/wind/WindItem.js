@@ -30,11 +30,12 @@ let cover = "";
   return (
     <li className="bg-sky-500 m-4 flex justify-center items-center">
       <img src={cover} alt={`${windName} cover`} />
-      <label className="ml-4 mr-8 text-4xl">
+      <label className="ml-4 mr-8 text-3xl">
         {" "}
         {windName} <br />
-        {windPrice} €<br />
-        {windDescription}
+        {windPrice} € <br />
+        <span className="text-xl">{windDescription}</span>
+        
       </label>
     </li>
   );
