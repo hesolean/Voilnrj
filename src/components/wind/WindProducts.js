@@ -64,13 +64,14 @@ const WindProducts = ({ cart, updateCart }) => {
       <Categories onSelectionChange={handleSelectionChange} />
 
       <ul className="flex flex-wrap m-30">
-        {winds.map(({ id, windName, windPrice, windCover, windCategory }) =>
+        {winds.map(({ id, windName, windPrice, windCover, windCategory, windDescription }) =>
           !selectedCategory || selectedCategory === windCategory ? (
             <div key={id} className="flex flex-col justify-center items-center">
               <WindItem
                 windCover={windCover}
                 windName={windName}
                 windPrice={windPrice}
+                windDescription={windDescription}
               />
               <button
                 className="group w-fit px-6 py-3 my-2 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
