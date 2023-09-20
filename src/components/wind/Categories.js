@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
 //local data
 import { categoryList } from "../../datas/categoryList";
 
-const Categories = ({ setActiveCategory, activeCategory }) => {
-  //props : catégorie sélectionnée
+const Categories = ({onSelectionChange}) => {
+  const [activeCategory, setActiveCategory] = useState('')
+
+  
   return (
     <div className="flex justify-around items-center w-full h-20">
       <label className="text-lightblue text-xl flex justify-around items-center">
@@ -13,7 +15,12 @@ const Categories = ({ setActiveCategory, activeCategory }) => {
           id="activeCategory"
           name="activeCategory"
           value={activeCategory}
-          onChange={(e) => setActiveCategory(e.target.value)}
+          onChange={(e) => {
+            setActiveCategory(e.target.value)
+            console.log('target', e.target.value)
+            console.log('set', activeCategory)
+            onSelectionChange(e.target.value)
+          }}
           className="bg-black text-lightblue m-3 text-xl"
         >
           {categoryList.map((cat) => (
@@ -25,7 +32,10 @@ const Categories = ({ setActiveCategory, activeCategory }) => {
       </label>
       <button
         className="group w-fit px-6 py-3 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
-        onClick={() => setActiveCategory("")}
+        onClick={() => {
+          setActiveCategory("")
+          onSelectionChange("")
+        }}
       >
         Réinitialiser la catégorie de vent
       </button>

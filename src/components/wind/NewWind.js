@@ -1,25 +1,39 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-// import TextError from "../formik/TextError";
+
+import { Formik, Form } from "formik";
+import axios from 'axios'
 
 //composants
 import FormikControl from "../formElements/FormikControl";
+
 import { categoryList } from "../../datas/categoryList";
+import { coverList } from "../../datas/coverList";
 
 //services
 import { newWindValidationSchema } from "../services/ValidationSchemas";
 
+
 const initialValues = {
   windName: "",
-  description: "",
-  category: "",
-  price: 0,
-  cover: "",
-  amount: 0,
+  windDescription: "",
+  windCategory: "",
+  windPrice: "",
+  windCover: "",
+  windAmount: 0,
 };
 
-const onSubmit = (values) => {
-  console.log('New : ', values)
+const handleSubmit = async (values, onSubmitProps) => {
+  try {
+    console.log("Form data : ", values);
+    console.log("submit props : ", onSubmitProps);
+    axios.post(`http://localhost:8080/winds`, values).then((res) => {
+      console.log(res);
+    });
+    onSubmitProps.setSubmitting(false);
+    onSubmitProps.resetForm();
+  } catch (error) {
+    console.error("Erreur lors de la soumission : ", error);
+  }
 };
 
 // début du composant
@@ -37,24 +51,12 @@ const NewWind = () => {
         </div>
         <Formik
           initialValues={initialValues}
-          validationSchema={newWindValidationSchema}
-          onSubmit={onSubmit}
+          // validationSchema={newWindValidationSchema}
+          onSubmit={handleSubmit}
         >
           {(formik) => (
             <div className="flex justify-center items-center">
               <Form className="flex flex-col w-full md:w-1/2">
-                {/* <label htmlFor="identifiant" className="text-3xl m-3">
-                  Nom
-                </label>
-                <Field
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Entrez le nom du produit"
-                  className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
-                />
-                <ErrorMessage name="name" component={TextError} /> */}
-
                 <FormikControl
                   control="input"
                   type="text"
@@ -65,58 +67,29 @@ const NewWind = () => {
                 <FormikControl
                   control="textarea"
                   label="Description"
-                  name="description"
+                  name="windDescription"
                 />
-
-                {/* <label htmlFor="category" className="text-3xl mb-3 mt-8 mr-3">
-                  Catégorie
-                </label>
-                <Field
-                  type="text"
-                  id="category"
-                  name="category"
-                  placeholder="Entrez la catégorie"
-                  className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
-                />
-                <ErrorMessage name="category" component={TextError} /> */}
 
                 <FormikControl
                   control="select"
                   label="Catégorie"
-                  name="category"
+                  name="windCategory"
                   options={categoryList}
                 />
-
-                {/* <label htmlFor="price" className="text-3xl mb-3 mt-8 mr-3">
-                  Prix
-                </label>
-                <Field
-                  type="number"
-                  id="price"
-                  name="price"
-                  placeholder="Entrez le prix"
-                  className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
-                />
-                <ErrorMessage name="price" component={TextError} /> */}
 
                 <FormikControl
                   control="input"
                   type="number"
-                  label="Prix du produit"
-                  name="price"
+                  label="Prix"
+                  name="windPrice"
                 />
-
-                {/* <label htmlFor="cover" className="text-3xl mb-3 mt-8 mr-3">
-                  Image
-                </label>
-                <Field
-                  type="file"
-                  id="cover"
-                  name="cover"
-                  placeholder="Choisissez l'image"
-                  className="p-2 bg-transparent border-2 rounded-md text-blue focus:outline-none"
+                
+                <FormikControl
+                  control="select"
+                  label="Image"
+                  name="windCover"
+                  options={coverList}
                 />
-                <ErrorMessage name="cover" component={TextError} /> */}
 
                 <button
                   type="submit"
@@ -131,6 +104,6 @@ const NewWind = () => {
       </div>
     </div>
   );
-};
+}
 
 export default NewWind;

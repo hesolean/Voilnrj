@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import { Formik, Form } from "formik";
+
 import axios from "axios";
 
 //composants
@@ -32,7 +34,7 @@ const onSubmit = async (values, onSubmitProps) => {
 
 function Profil() {
   // const [index, setIndex] = useState("");
-  const [profils, setProfils] = useState({});
+  const [profils, setProfils] = useState([]);
   const [formValues, setFormValues] = useState(null);
   const profilList = profils.data;
 
@@ -40,19 +42,14 @@ function Profil() {
     axios
       .get(`http://localhost:8080/profils`)
       .then((res) => {
-        setProfils(res);
-        // console.log("prolfil list : ", profilList);
-        // console.log("profil : ", profils);
+        setProfils(res.data);
+
       })
       .catch((err) => {
         console.log(err);
       });
   });
 
-  // const handleClick = () => {
-  //   initialValues = profils.data[index];
-  //   console.log("initial values", initialValues);
-  // };
   return (
     <div
       name="profil"
@@ -63,30 +60,17 @@ function Profil() {
           <p className="text-4xl front-bold inline border-b-4 border-black">
             Profil
           </p>
-          {/* <div>
-            <label>Donnez l'indice : </label>
-            <input
-              type="number"
-              name="index"
-              value={index}
-              onChange={(e) => {
-                setIndex(e.target.value);
-              }}
-            />
-            <button type="submit" onClick={handleClick}>
-              Valider
-            </button>
-          </div> */}
+
 
           {/* affichage de la liste des profils récupérés dans le get mais bug une fois sur 2 !!!!*/}
-          {/* <ul>
-            {profilList.map((item) => (
+          <ul>
+            {profils.map((item) => (
               <li key={item.id}>
                 {" "}
                 {item.profilName ? `${item.profilName}` : ""}{" "}
               </li>
             ))}
-          </ul> */}
+          </ul>
           
         </div>
         <Formik
