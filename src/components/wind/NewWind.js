@@ -1,12 +1,15 @@
 import React from "react";
+
 import { Formik, Form } from "formik";
 import axios from 'axios'
 
+//composants
 import FormikControl from "../formElements/FormikControl";
 
 import { categoryList } from "../../datas/categoryList";
 import { coverList } from "../../datas/coverList";
 
+//services
 import { newWindValidationSchema } from "../services/ValidationSchemas";
 
 

@@ -1,4 +1,6 @@
 import React from 'react'
+
+//local data
 import { socialLinks } from '../datas/socialLinks'
 
 const SocialLinks = () => {

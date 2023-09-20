@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+//local data
 import { categoryList } from "../../datas/categoryList";
 
 const Categories = ({onSelectionChange}) => {

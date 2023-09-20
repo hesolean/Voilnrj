@@ -62,6 +62,24 @@ const WindProducts = ({ cart, updateCart }) => {
       });
   }
 
+  /**
+   * ajoute des éléments dans le panier
+   * @param {string} name
+   * @param {number} price
+   */
+  function addToCart(name, price) {
+    const currentWindAdded = cart.find((wind) => wind.name === name);
+    if (currentWindAdded) {
+      const cartFilteredCurrentWind = cart.filter((wind) => wind.name !== name);
+      updateCart([
+        ...cartFilteredCurrentWind,
+        { name, price, amount: currentWindAdded.amount + 1 },
+      ]);
+    } else {
+      updateCart([...cart, { name, price, amount: 1 }]);
+    }
+    alert("Ajouté à la voile !");
+  }
   return (
     <div
       name="windProducts"

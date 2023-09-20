@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 import { Formik, Form } from "formik";
-import FormikControl from "../formElements/FormikControl";
 
 import axios from "axios";
 
+//composants
+import FormikControl from "../formElements/FormikControl";
+
+//services
 import { profilValidationSchema } from "../services/ValidationSchemas";
 
 let initialValues = {
