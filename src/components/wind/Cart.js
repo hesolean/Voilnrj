@@ -46,12 +46,12 @@ function Cart({ cart, updateCart }) {
           </h2>
           <ul className="text-4xl ml-10 mb-4">
             {/* on passe en revue les éléments du panier pour les afficher */}
-            {cart.map(({ name, price, amount }, index) => (
-              <div key={`${name}-${index}`}>
-                {name} {price}€ * {amount} = {price * amount}€
+            {cart.map(({ windName, windPrice, windAmount, id }) => (
+              <div key={`${id}`}>
+                {windName} {windPrice}€ * {windAmount} = {windPrice * windAmount}€
                 <button
                   className="text-lg w-fit px-6 py-3 my-2 flex rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer"
-                  onClick={() => removeFromCart(name)}
+                  onClick={() => removeFromCart(windName)}
                 >
                   Supprimer le vent
                 </button>
