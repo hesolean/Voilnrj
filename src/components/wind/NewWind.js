@@ -14,12 +14,12 @@ const initialValues = {
   windName: "",
   windDescription: "",
   windCategory: "",
-  windPrice: 0,
+  windPrice: "",
   windCover: "",
   windAmount: 0,
 };
 
-const onSubmit = async (values, onSubmitProps) => {
+const handleSubmit = async (values, onSubmitProps) => {
   try {
     console.log("Form data : ", values);
     console.log("submit props : ", onSubmitProps);
@@ -48,8 +48,8 @@ const NewWind = () => {
         </div>
         <Formik
           initialValues={initialValues}
-          validationSchema={newWindValidationSchema}
-          onSubmit={onSubmit}
+          // validationSchema={newWindValidationSchema}
+          onSubmit={handleSubmit}
         >
           {(formik) => (
             <div className="flex justify-center items-center">
@@ -64,7 +64,7 @@ const NewWind = () => {
                 <FormikControl
                   control="textarea"
                   label="Description"
-                  name="description"
+                  name="windDescription"
                 />
 
                 <FormikControl
