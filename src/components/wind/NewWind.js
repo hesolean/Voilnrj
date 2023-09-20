@@ -5,6 +5,7 @@ import axios from 'axios'
 import FormikControl from "../formElements/FormikControl";
 
 import { categoryList } from "../../datas/categoryList";
+import { coverList } from "../../datas/coverList";
 
 import { newWindValidationSchema } from "../services/ValidationSchemas";
 
@@ -15,7 +16,7 @@ const initialValues = {
   windCategory: "",
   windPrice: 0,
   windCover: "",
-  amount: 0,
+  windAmount: 0,
 };
 
 const onSubmit = async (values, onSubmitProps) => {
@@ -76,8 +77,15 @@ const NewWind = () => {
                 <FormikControl
                   control="input"
                   type="number"
-                  label="Prix du produit"
+                  label="Prix"
                   name="windPrice"
+                />
+                
+                <FormikControl
+                  control="select"
+                  label="Image"
+                  name="windCover"
+                  options={coverList}
                 />
 
                 <button
