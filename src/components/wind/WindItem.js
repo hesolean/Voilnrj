@@ -1,6 +1,6 @@
 import brise from "../../assets/brise.jpg";
 import coups from "../../assets/forts coups de vent.jpg";
-import ouragan from "../../assets/brise.jpg";
+import ouragan from "../../assets/ouragan.jfif";
 import tempete from "../../assets/tempête.jpg";
 import fort from "../../assets/vent fort.jpg";
 import frais from "../../assets/vent frais.jpg";
@@ -13,16 +13,16 @@ let cover = "";
       cover = brise;
       break;
     case "coups":
-      cover = brise;
+      cover = coups;
       break;
     case "ouragan":
-      cover = brise;
+      cover = ouragan;
       break;
     case "tempete":
-      cover = brise;
+      cover = tempete;
       break;
     case "fort":
-      cover = brise;
+      cover = fort;
       break;
     default:
       cover = frais;
