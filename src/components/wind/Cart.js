@@ -50,7 +50,7 @@ function Cart({ cart, updateCart }) {
               <div key={`${id}`}>
                 {windName} {windPrice}€ * {windAmount} = {windPrice * windAmount}€
                 <button
-                  className="text-lg w-fit px-6 py-3 my-2 flex rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer"
+                  className="text-lg w-fit px-6 py-3 my-2 flex rounded-md text-lightblue bg-gradient-to-r from-red to-black cursor-pointer"
                   onClick={() => removeFromCart(windName)}
                 >
                   Supprimer le vent
