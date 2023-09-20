@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { categoryList } from "../../datas/categoryList";
 
-const Categories = ({ setActiveCategory, activeCategory }) => {
-  //props : catégorie sélectionnée
+const Categories = ({onSelectionChange}) => {
+  const [activeCategory, setActiveCategory] = useState('')
+
+  
   return (
     <div className="flex justify-around items-center w-full h-20">
       <label className="text-lightblue text-xl flex justify-around items-center">
@@ -11,7 +13,12 @@ const Categories = ({ setActiveCategory, activeCategory }) => {
           id="activeCategory"
           name="activeCategory"
           value={activeCategory}
-          onChange={(e) => setActiveCategory(e.target.value)}
+          onChange={(e) => {
+            setActiveCategory(e.target.value)
+            console.log('target', e.target.value)
+            console.log('set', activeCategory)
+            onSelectionChange(e.target.value)
+          }}
           className="bg-black text-lightblue m-3 text-xl"
         >
           {categoryList.map((cat) => (
