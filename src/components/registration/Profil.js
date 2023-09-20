@@ -31,26 +31,22 @@ const onSubmit = async (values, onSubmitProps) => {
 
 function Profil() {
   // const [index, setIndex] = useState("");
-  const [profils, setProfils] = useState([]);
+  const [profils, setProfils] = useState({});
   const [formValues, setFormValues] = useState(null);
+  const profilList = profils.data;
 
   useEffect(() => {
     axios
       .get(`http://localhost:8080/profils`)
       .then((res) => {
-        setProfils(res.data);
-        // console.log("prolfil list : ", profilList);
-        // console.log("profil : ", profils);
+        setProfils(res);
+
       })
       .catch((err) => {
         console.log(err);
       });
   });
 
-  // const handleClick = () => {
-  //   initialValues = profils.data[index];
-  //   console.log("initial values", initialValues);
-  // };
   return (
     <div
       name="profil"
@@ -84,7 +80,7 @@ function Profil() {
                 {item.profilName ? `${item.profilName}` : ""}{" "}
               </li>
             ))}
-          </ul>
+          </ul> */}
           
         </div>
         <Formik

@@ -17,8 +17,8 @@ function Cart({ cart, updateCart }) {
    * retire un produit du panier
    * @param {string} name
    */
-  function removeFromCart(name) {
-    const newCart = cart.filter((wind) => wind.name !== name);
+  function removeFromCart(windName) {
+    const newCart = cart.filter((wind) => wind.windName !== windName);
     updateCart([...newCart]);
   }
 

@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from "react";
-
-import { Formik, Form } from "formik";
-import FormikControl from "../formElements/FormikControl";
-
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from 'axios'
-
+// import TextError from "../formik/TextError";
+import FormikControl from "../formElements/FormikControl";
 import { categoryList } from "../../datas/categoryList";
+import { coverList } from "../../datas/coverList"
 import { newWindValidationSchema } from "../services/ValidationSchemas";
+
+// import brise from '../assets/brise.jpg'
+// import coups from '../assets/forts coups de vent.jpg'
+// import ouragan from '../assets/ouragan.jfif'
+// import tempete from '../assets/tempête.jpg'
+// import fort from '../assets/vent fort.jpg'
+// import frais from '../assets/vent frais.jpg'
 
 const initialValues = {
   windName: "",
-  description: "",
-  category: "",
-  price: 0,
-  cover: "",
+  windDescription: "",
+  windCategory: "",
+  windPrice: 0,
+  windCover: "",
   amount: 0,
 };
 
@@ -32,8 +38,7 @@ const onSubmit = async (values, onSubmitProps) => {
 };
 
 // début du composant
-function NewWind () {
-  
+const NewWind = () => {
   return (
     <div
       name="newWind"
@@ -69,7 +74,7 @@ function NewWind () {
                 <FormikControl
                   control="select"
                   label="Catégorie"
-                  name="category"
+                  name="windCategory"
                   options={categoryList}
                 />
 
@@ -77,7 +82,7 @@ function NewWind () {
                   control="input"
                   type="number"
                   label="Prix du produit"
-                  name="price"
+                  name="windPrice"
                 />
 
                 <button
@@ -93,6 +98,6 @@ function NewWind () {
       </div>
     </div>
   );
-};
+}
 
 export default NewWind;
