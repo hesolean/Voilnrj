@@ -9,7 +9,7 @@ function Cart({ cart, updateCart }) {
 
   // calcul du total du panier
   const total = cart.reduce(
-    (acc, windType) => acc + windType.amount * windType.price,
+    (acc, windType) => acc + windType.windAmount * windType.windPrice,
     0
   );
 
