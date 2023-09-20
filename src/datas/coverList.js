@@ -1,19 +1,23 @@
 export const coverList = [
     {
-        value:'brise',
+        value:'---',
         key:"0"
     },
     {
+        value:'brise',
+        key:"b"
+    },
+    {
         value: "coups",
-        key: "l"
+        key: "c"
     },
     {
         value: "ouragan",
-        key: "csc"
+        key: "o"
     },
     {
         value: "tempete",
-        key: "cc"
+        key: "t"
     },
     {
         value: "fort",
@@ -21,6 +25,6 @@ export const coverList = [
     },
     {
         value: "frais",
-        key: "cfr"
+        key: "fr"
     }
 ]
