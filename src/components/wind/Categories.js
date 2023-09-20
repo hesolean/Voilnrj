@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { categoryList } from "../../datas/categoryList";
 
 const Categories = ({onSelectionChange}) => {
@@ -30,7 +30,10 @@ const Categories = ({onSelectionChange}) => {
       </label>
       <button
         className="group w-fit px-6 py-3 flex items-center rounded-md text-lightblue bg-gradient-to-r from-blue to-black cursor-pointer hover:scale-110 duration-300"
-        onClick={() => setActiveCategory("")}
+        onClick={() => {
+          setActiveCategory("")
+          onSelectionChange("")
+        }}
       >
         Réinitialiser la catégorie de vent
       </button>

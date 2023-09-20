@@ -1,18 +1,13 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import axios from 'axios'
-// import TextError from "../formik/TextError";
+
 import FormikControl from "../formElements/FormikControl";
+
 import { categoryList } from "../../datas/categoryList";
-import { coverList } from "../../datas/coverList"
+
 import { newWindValidationSchema } from "../services/ValidationSchemas";
 
-// import brise from '../assets/brise.jpg'
-// import coups from '../assets/forts coups de vent.jpg'
-// import ouragan from '../assets/ouragan.jfif'
-// import tempete from '../assets/tempête.jpg'
-// import fort from '../assets/vent fort.jpg'
-// import frais from '../assets/vent frais.jpg'
 
 const initialValues = {
   windName: "",
