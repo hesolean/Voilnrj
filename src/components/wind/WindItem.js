@@ -6,7 +6,7 @@ import fort from "../../assets/vent fort.jpg";
 import frais from "../../assets/vent frais.jpg";
 
 //affichage de chaque produit dans la liste de la home
-function WindItem({ windCover, windName, windPrice,windDescription }) {
+function WindItem({ windCover, windName, windPrice, windDescription }) {
 let cover = "";
   switch (windCover) {
     case "brise":

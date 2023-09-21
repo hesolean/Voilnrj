@@ -67,16 +67,16 @@ const WindProducts = ({ cart, updateCart }) => {
    * @param {string} name
    * @param {number} price
    */
-  function addToCart(name, price) {
-    const currentWindAdded = cart.find((wind) => wind.name === name);
+  function addToCart(windName, windPrice) {
+    const currentWindAdded = cart.find((wind) => wind.windName === windName);
     if (currentWindAdded) {
-      const cartFilteredCurrentWind = cart.filter((wind) => wind.name !== name);
+      const cartFilteredCurrentWind = cart.filter((wind) => wind.windName !== windName);
       updateCart([
         ...cartFilteredCurrentWind,
-        { name, price, amount: currentWindAdded.amount + 1 },
+        { windName, windPrice, windAmount: currentWindAdded.windAmount + 1 },
       ]);
     } else {
-      updateCart([...cart, { name, price, amount: 1 }]);
+      updateCart([...cart, { windName, windPrice, windAmount: 1 }]);
     }
     alert("Ajouté à la voile !");
   }
