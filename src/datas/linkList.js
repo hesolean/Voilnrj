@@ -4,11 +4,6 @@ export const linkList = [
     name: "Bienvenue",
     title: "home",
   },
-  {
-    id: 61,
-    name: "Connexion",
-    title: "login",
-  },
 
   {
     id: 62,
@@ -25,15 +20,5 @@ export const linkList = [
     name: "Produits",
     title: "windProducts",
   },
-  {
-    id: 4,
-    name: "Contact",
-    title: "contact",
-  },
 
-  {
-    id: 7,
-    name: "Nouveau produit",
-    title: "newWind",
-  },
 ];
