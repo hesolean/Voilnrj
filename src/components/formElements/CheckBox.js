@@ -1,5 +1,7 @@
 import React from "react";
 import { Field, ErrorMessage } from "formik";
+
+//composants
 import TextError from "./TextError";
 
 //il faut considérer qu'il s'agit d'un tableau de valeur pour son installation dans le composant final

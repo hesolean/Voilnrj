@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 import Home from "@/components/Home";
 import Navbar from "@/components/layout/Navbar";
 import Cart from "@/components/wind/Cart";

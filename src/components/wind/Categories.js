@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { categoryList } from "@/datas/categoryList";
 
+
 const Categories = ({onSelectionChange}) => {
   const [activeCategory, setActiveCategory] = useState('')
 
