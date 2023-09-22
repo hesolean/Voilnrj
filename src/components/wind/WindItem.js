@@ -1,9 +1,9 @@
-import brise from "../../assets/brise.jpg";
-import coups from "../../assets/forts coups de vent.jpg";
-import ouragan from "../../assets/ouragan.jfif";
-import tempete from "../../assets/tempête.jpg";
-import fort from "../../assets/vent fort.jpg";
-import frais from "../../assets/vent frais.jpg";
+import brise from "@/assets/brise.jpg";
+import coups from "@/assets/forts coups de vent.jpg";
+import ouragan from "@/assets/ouragan.jfif";
+import tempete from "@/assets/tempête.jpg";
+import fort from "@/assets/vent fort.jpg";
+import frais from "@/assets/vent frais.jpg";
 
 //affichage de chaque produit dans la liste de la home
 function WindItem({ windCover, windName, windPrice,windDescription }) {

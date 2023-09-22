@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-scroll";
+import logo from "@/assets/logo.jpeg";
+import { linkList } from "@/datas/linkList";
 
-//images
-import logo from "../../assets/logo.jpeg";
-
-//local data
-import { linkList } from "../../datas/linkList";
 
 const Navbar = () => {
   // affichage de la navbar pour le coté responsive

@@ -1,7 +1,6 @@
 import React from 'react'
+import logo from '@/assets/logo.jpeg'
 
-//images
-import logo from '../assets/logo.jpeg'
 
 function Home() {
     

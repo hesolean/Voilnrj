@@ -3,14 +3,14 @@ import React from "react";
 import { Formik, Form } from "formik";
 import axios from 'axios'
 
-//composants
-import FormikControl from "../formElements/FormikControl";
+import FormikControl from "@/components/formElements/FormikControl";
 
-import { categoryList } from "../../datas/categoryList";
-import { coverList } from "../../datas/coverList";
 
-//services
-import { newWindValidationSchema } from "../services/ValidationSchemas";
+import { categoryList } from "@/datas/categoryList";
+import { coverList } from "@/datas/coverList";
+
+import { newWindValidationSchema } from "@/components/services/ValidationSchemas";
+
 
 
 const initialValues = {
