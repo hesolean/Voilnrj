@@ -4,6 +4,7 @@ import { Link } from "react-scroll";
 import logo from "@/assets/logo.jpeg";
 import { linkList } from "@/datas/linkList";
 
+
 const Navbar = () => {
   // affichage de la navbar pour le coté responsive
   const [nav, setNav] = useState(false);

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+
+//composants
 import Home from './components/Home';
 import Navbar from './components/layout/Navbar';
 import Cart from './components/wind/Cart'

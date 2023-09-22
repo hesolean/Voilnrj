@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from '@/assets/logo.jpeg'
 
+
 const Footer = () => {
   //constantes liées aux données des 2 champs
   const [message, setMessage] = useState("");

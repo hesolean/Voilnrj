@@ -1,6 +1,7 @@
 import React from 'react'
 import { socialLinks } from '@/datas/socialLinks'
 
+
 const SocialLinks = () => {
   return (
     <div className='hidden lg:flex flex-col top-[15%] right-20 fixed'>

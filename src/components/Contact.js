@@ -1,6 +1,6 @@
 import React from 'react'
 
-// utilise le site getform.io
+// utilise le site getform.io pour récupérer le message
 
 const Contact = () => {
   return (

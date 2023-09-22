@@ -1,7 +1,10 @@
 import React from "react";
+import { Field, ErrorMessage } from "formik";
+
 import DateView from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Field, ErrorMessage } from "formik";
+
+//composants
 import TextError from "./TextError";
 
 // dans initialValues : date: null
