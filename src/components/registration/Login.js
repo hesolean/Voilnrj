@@ -1,7 +1,8 @@
 import React from "react";
-import FormikControl from "../formElements/FormikControl";
-import { loginValidationSchema } from "../services/ValidationSchemas";
 import { Formik, Form } from "formik";
+
+import FormikControl from "@/components/formElements/FormikControl";
+import { loginValidationSchema } from "@/components/services/ValidationSchemas";
 
 function Login() {
   const initialValues = {

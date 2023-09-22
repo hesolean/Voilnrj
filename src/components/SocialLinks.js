@@ -1,5 +1,5 @@
 import React from 'react'
-import { socialLinks } from '../datas/socialLinks'
+import { socialLinks } from '@/datas/socialLinks'
 
 const SocialLinks = () => {
   return (

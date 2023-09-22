@@ -4,9 +4,9 @@ import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
 import axios from "axios";
 
-import WindItem from "./WindItem";
-import Categories from "./Categories";
-import UpdateWind from "./UpdateWind";
+import WindItem from "@/components/wind/WindItem";
+import Categories from "@/components/wind/Categories";
+import UpdateWind from "@/components/wind/UpdateWind";
 
 const WindProducts = ({ cart, updateCart }) => {
   // variable pour l'affichage des catégories pour le filtre

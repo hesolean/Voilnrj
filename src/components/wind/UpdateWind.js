@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Formik, Form } from "formik";
 import axios from "axios";
 
-import FormikControl from "../formElements/FormikControl";
-import Loader from "../Loader";
+import FormikControl from "@/components/formElements/FormikControl";
+import Loader from "@/components/Loader";
 
-import { categoryList } from "../../datas/categoryList";
-import { coverList } from "../../datas/coverList";
+import { categoryList } from "@/datas/categoryList";
+import { coverList } from "@/datas/coverList";
 
-import { newWindValidationSchema } from "../services/ValidationSchemas";
+import { newWindValidationSchema } from "@/components/services/ValidationSchemas";
 
 const handleSubmit = (values, onSubmitProps) => {
   try {
